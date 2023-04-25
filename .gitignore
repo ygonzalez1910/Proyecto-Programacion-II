@@ -8,3 +8,9 @@
 .vs/AplicacionGimnasio/v17/.suo
 
 *.db
+
+.vs/AplicacionGimnasio/v17/Browse.VC.db-shm
+
+.vs/AplicacionGimnasio/v17/Browse.VC.db-wal
+
+.vs/AplicacionGimnasio/v17/Browse.VC.opendb
