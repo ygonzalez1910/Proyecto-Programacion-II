@@ -1,8 +1,8 @@
 #include "Corredor.h"
 #include <sstream>
 using std::stringstream;
-Corredor::Corredor(Deportista* deportista, char sexo, double estatura)
-	: Triatlonista(deportista), sexo(sexo), estatura(estatura)
+Corredor::Corredor(char sexo, double estatura)
+	:sexo(sexo), estatura(estatura)
 {
 }
 
@@ -14,7 +14,7 @@ string Corredor::toString()
 {
 	stringstream r;
 	r << "Datos Biométricos:" << endl;
-	r << datosBiometricos->toString();
+	r << datosBiometricos.toString();
 	r << "Sexo: " << sexo << endl;
 	r << "Estatura: " << estatura << endl;
 	return r.str();

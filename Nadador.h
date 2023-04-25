@@ -2,13 +2,16 @@
 #include "Triatlonista.h"
 #include "DatosBiometricos.h"
 
-class Nadador : public Triatlonista
+class Nadador
 {
 public:
-	Nadador(Deportista*);
+	Nadador(double, double, double);
 	virtual ~Nadador();
 	virtual string toString();
 private:
-	DatosBiometricos* datosBiometricos;
+	double masaMuscular;
+	double peso;
+	double porcentajeGrasaCorporal;
+	DatosBiometricos datosBiometricos;
 };
 

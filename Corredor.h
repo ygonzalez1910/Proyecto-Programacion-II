@@ -2,15 +2,15 @@
 #include "DatosBiometricos.h";
 #include "Triatlonista.h"
 
-class Corredor : public Triatlonista
+class Corredor
 {
 public:
-	Corredor(Deportista*, char, double);
+	Corredor(char, double);
 	~Corredor();
 	string toString();
 private:
 	char sexo;
 	double estatura;
-	DatosBiometricos* datosBiometricos;
+	DatosBiometricos datosBiometricos;
 };
 

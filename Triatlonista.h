@@ -1,16 +1,14 @@
 #pragma once
 #include "Deportista.h"
+#include "DatosBiometricos.h"
 using namespace std;
 #include <iostream>
 class Triatlonista : public Deportista
 {
 public:
-	Triatlonista(int, int);
+	Triatlonista(string, string, string, Fecha*, Fecha*, int, int);
 	~Triatlonista();
-	virtual string toStringDatosGenerales() const;
 	string toString();
-protected:
-	Triatlonista(Deportista*);
 private:
 	int cantidadParticipacionesEnIronMan;
 	int cantidadTriatlonesGanados;
