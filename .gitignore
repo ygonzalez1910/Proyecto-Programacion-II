@@ -1,0 +1,10 @@
+
+*.ipch
+
+*.vsidx
+
+*.lock
+
+.vs/AplicacionGimnasio/v17/.suo
+
+*.db
