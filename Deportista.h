@@ -5,11 +5,10 @@ using namespace std;
 class Deportista
 {
 public:
-	Deportista(string, string, string, Fecha*,Fecha*); //aqui estaba la clase fecha 
-	//pero usted dijo que la eliminaramos, aunque creo que es mejor trabajar con Fecha
-	//que con ManejoSimpleFecha
+	Deportista(string, string, string, Fecha*,Fecha*); 
 	virtual string toString();
 	virtual ~Deportista();
+
 protected:
 	string cedula;
 	string nombre;

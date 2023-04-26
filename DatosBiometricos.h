@@ -7,6 +7,7 @@ public:
 	DatosBiometricos(double, double, double, double);
 	virtual ~DatosBiometricos();
 	virtual string toString() const;
+
 private:
 	double estatura;
 	double peso;
