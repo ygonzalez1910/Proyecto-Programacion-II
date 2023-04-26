@@ -2,9 +2,9 @@
 #include <sstream>
 using std::stringstream;
 
-Curso::Curso(string descripcionCurso, char nivel, Fecha* fechaCurso, int horario, int cupoMaximo)
+Curso::Curso(string descripcionCurso, char nivel, Fecha* fechaCurso, int horario)
 	:descripcionCurso(descripcionCurso),nivel(nivel),fechaCurso(fechaCurso),horario(horario),
-	cupoMaximo(cupoMaximo)
+	cupoMaximo(10), cantidad(0)
 {
 }
 
@@ -12,12 +12,19 @@ Curso::~Curso()
 {
 }
 
-int Curso::setCupoMaximo(int cupoMaximo)
+bool Curso::lleno()
 {
-	return cupoMaximo = cupoMaximo;
+	return cantidad == cupoMaximo;
 }
 
-void Curso::hacerReservacion(Triatlonista triatlonista)
+void Curso::hacerReservacion(Triatlonista* triatlonista)
 {
+	if (lleno()) {
+		
+	}
 	//no se como hacer que los nombres se agreguen a la lista
+}
+
+void Curso::cancelacion()
+{
 }

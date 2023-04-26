@@ -8,7 +8,7 @@ public:
 	Corredor(char, double);
 	~Corredor();
 	string toString();
-private:
+protected:
 	char sexo;
 	double estatura;
 	DatosBiometricos datosBiometricos;
