@@ -1,9 +1,9 @@
 #include "Triatlonista.h"
 #include <sstream>
 
-Triatlonista::Triatlonista(string cedula, string nombre, string numeroTelefono, Fecha* fechaNacimiento, Fecha*,int cantidadParticipacionesEnIronMan, int cantidadTriatlonesGanados)
-	:cantidadParticipacionesEnIronMan(cantidadParticipacionesEnIronMan), cantidadTriatlonesGanados(cantidadTriatlonesGanados),
-	Deportista(cedula, nombre, numeroTelefono, fechaNacimiento, fechaRegistro)
+Triatlonista::Triatlonista(int cantiParticEnIronMan, int cantTriatGanados, DatosBiometricos* datos)
+	:cantiParticEnIronMan(cantiParticEnIronMan), cantTriatGanados(cantTriatGanados),datos(NULL),
+	Deportista(cedula, nombre, numeroTelefono, fechaNacimiento)
 {
 }
 
@@ -16,7 +16,7 @@ Triatlonista::~Triatlonista()
 string Triatlonista::toString()
 {
 	stringstream r;
-	r << "Cantidad de participaciones en ironman: " << cantidadParticipacionesEnIronMan << endl;
-	r << "Cantidad dr Triatlones ganados: " << cantidadTriatlonesGanados << endl;
+	r << "Cantidad de participaciones en ironman: " << cantiParticEnIronMan << endl;
+	r << "Cantidad dr Triatlones ganados: " << cantTriatGanados << endl;
 	return r.str();
 }

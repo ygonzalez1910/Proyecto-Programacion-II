@@ -6,11 +6,12 @@ using namespace std;
 class Triatlonista : public Deportista
 {
 public:
-	Triatlonista(string, string, string, Fecha*, Fecha*, int, int);
+	Triatlonista(int, int, DatosBiometricos*);
 	~Triatlonista();
 	string toString();
 private:
-	int cantidadParticipacionesEnIronMan;
-	int cantidadTriatlonesGanados;
+	int cantiParticEnIronMan;
+	int cantTriatGanados;
+	DatosBiometricos* datos;
 };
 
