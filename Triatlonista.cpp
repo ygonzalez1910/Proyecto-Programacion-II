@@ -3,7 +3,7 @@
 
 Triatlonista::Triatlonista(int cantiParticEnIronMan, int cantTriatGanados, DatosBiometricos* datos)
 	:cantiParticEnIronMan(cantiParticEnIronMan), cantTriatGanados(cantTriatGanados),datos(NULL),
-	Deportista(cedula, nombre, numeroTelefono, fechaNacimiento)
+	Deportista(cedula, nombre, numeroTelefono, fechaNacimiento, fechaRegistro)
 {
 }
 
