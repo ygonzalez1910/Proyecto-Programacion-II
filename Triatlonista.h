@@ -1,9 +1,12 @@
 #pragma once
-#include "Deportista.h"
+#include "Corredor.h"
+#include "Nadador.h"
+#include "Ciclista.h"
 #include "DatosBiometricos.h"
 using namespace std;
 #include <iostream>
-class Triatlonista : public Deportista
+
+class Triatlonista : public Corredor, public Ciclista, public Nadador
 {
 public:
 	Triatlonista(int, int, DatosBiometricos*);

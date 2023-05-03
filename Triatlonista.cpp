@@ -2,8 +2,8 @@
 #include <sstream>
 
 Triatlonista::Triatlonista(int cantiParticEnIronMan, int cantTriatGanados, DatosBiometricos* datos)
-	:cantiParticEnIronMan(cantiParticEnIronMan), cantTriatGanados(cantTriatGanados),datos(NULL),
-	Deportista(cedula, nombre, numeroTelefono, fechaNacimiento)
+	:cantiParticEnIronMan(cantiParticEnIronMan), 
+	cantTriatGanados(cantTriatGanados),datos(NULL)
 {
 }
 

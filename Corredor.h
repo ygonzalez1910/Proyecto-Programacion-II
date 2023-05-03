@@ -1,8 +1,8 @@
 #pragma once
-#include "DatosBiometricos.h";
-#include "Triatlonista.h"
+#include "DatosBiometricos.h"
+#include "Deportista.h"
 
-class Corredor
+class Corredor : public Deportista
 {
 public:
 	Corredor(char, double);

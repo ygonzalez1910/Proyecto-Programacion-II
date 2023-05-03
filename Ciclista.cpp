@@ -13,7 +13,7 @@ string Ciclista::toString()
 {
 	stringstream r;
 	r << "Datos biometricos: " << endl;
-	r << datosBiometricos.toString();
+	//r << datosBiometricos.toString();
 	r << endl;
 	r << "Horas de entrenamiento: " << horasEntrenamiento << endl;
 	r << "Tempo promedio: " << temPromedio << endl;

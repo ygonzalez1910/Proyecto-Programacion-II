@@ -1,7 +1,7 @@
 #pragma once
-#include "Triatlonista.h"
+#include "Deportista.h"
 
-class Nadador
+class Nadador : public Deportista 
 {
 public:
 	Nadador(double, double, double);
