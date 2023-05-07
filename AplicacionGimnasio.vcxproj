@@ -139,6 +139,7 @@
     <ClCompile Include="Lista.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Nadador.cpp" />
+    <ClCompile Include="ObjetoBase.cpp" />
     <ClCompile Include="Triatlonista.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -153,6 +154,7 @@
     <ClInclude Include="Lista.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Nadador.h" />
+    <ClInclude Include="ObjetoBase.h" />
     <ClInclude Include="Triatlonista.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,19 +1,19 @@
 #pragma once
 #include "Fecha.h"
+#include "ObjetoBase.h"
 #include <iostream>
 using namespace std;
-class Deportista
+
+class Deportista : public ObjetoBase
 {
 public:
-	Deportista(string, string, string, Fecha*,Fecha*); 
-	virtual string toString();
-	virtual ~Deportista();
 
-protected:
-	string cedula;
-	string nombre;
-	string numeroTelefono;
-	Fecha* fechaNacimiento;
-	Fecha* fechaRegistro;
+	virtual string toString() const;
+	virtual string cedula() const = 0;
+	virtual string nombre() const = 0;
+	virtual string telefono() const = 0;
+	virtual Fecha* nacimiento() const = 0;
+	virtual string infoAdi() const = 0;
+
 };
 

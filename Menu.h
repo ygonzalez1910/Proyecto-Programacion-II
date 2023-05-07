@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Lista.h"
-#include ""
+#include "Triatlonista.h"
 
 class Menu
 {
@@ -13,7 +13,7 @@ public:
 
 private:
 	int opcion;
-	Lista<Cliente>* clientes;
+	Lista<Triatlonista>* triatlonistas;
 
 };
 
