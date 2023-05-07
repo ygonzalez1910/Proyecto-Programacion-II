@@ -1,9 +1,19 @@
 #pragma once
-#include <iostream>
-using namespace std;
+
+#include "Lista.h"
+#include "Triatlonista.h"
 
 class Menu
 {
+public:
+	Menu();
+	virtual ~Menu();
+	virtual void menuPrincipal();
+	virtual void iniciar();
+
+private:
+	int opcion;
+	Lista<Triatlonista>* triatlonistas;
 
 };
 

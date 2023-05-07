@@ -3,15 +3,20 @@
 #include "DatosBiometricos.h"
 using namespace std;
 #include <iostream>
+
 class Triatlonista : public Deportista
 {
 public:
-	Triatlonista(int, int, DatosBiometricos*);
-	~Triatlonista();
-	string toString();
+	Triatlonista(Deportista*, Deportista*, Deportista*, int, int);
+	virtual ~Triatlonista();
+	virtual string toString() const;
 private:
-	int cantiParticEnIronMan;
-	int cantTriatGanados;
-	DatosBiometricos* datos;
+	Deportista* corredor;
+	Deportista* nadador;
+	Deportista* ciclista;
+	int triaGanados;
+	int triaParticipados;
+	bool estado;
+	bool pago; 
 };
 

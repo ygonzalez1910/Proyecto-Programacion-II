@@ -1,7 +1,9 @@
 #include "Ciclista.h"
 #include <sstream>
-Ciclista::Ciclista(int horasEntrenamiento, double temPromedio)
-	: horasEntrenamiento(horasEntrenamiento), temPromedio(temPromedio)
+Ciclista::Ciclista(string cedula, string nombre, string telefono, Fecha* nacimiento,
+	int horasEntrenamiento, double temPromedio)
+	:cedula(cedula),nombre(nombre),telefono(telefono),nacimiento(nacimiento),
+	horasEntrenamiento(horasEntrenamiento), temPromedio(temPromedio)
 {
 }
 
@@ -9,13 +11,45 @@ Ciclista::~Ciclista()
 {
 }
 
-string Ciclista::toString()
+string Ciclista::toString() const
 {
 	stringstream r;
-	r << "Datos biometricos: " << endl;
-	r << datosBiometricos.toString();
-	r << endl;
 	r << "Horas de entrenamiento: " << horasEntrenamiento << endl;
 	r << "Tempo promedio: " << temPromedio << endl;
+	return r.str();
+}
+
+string Ciclista::cedula() const
+{
+	return cedula;
+}
+
+string Ciclista::nombre() const
+{
+	return nombre;
+}
+
+string Ciclista::telefono() const
+{
+	return telefono;
+}
+
+Fecha* Ciclista::nacimiento() const
+{
+	return nacimiento;
+}
+
+string Ciclista::infoAdi() const
+{
+	return info();
+}
+
+string Ciclista::info() const
+{
+	stringstream r;
+
+	r << "Horas de entrenamiento: " << horasEntrenamiento << endl;
+	r << "Temp promedio: " << temPromedio << endl;
+
 	return r.str();
 }

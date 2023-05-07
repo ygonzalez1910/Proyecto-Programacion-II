@@ -7,16 +7,22 @@ Triatlonista::Triatlonista(int cantiParticEnIronMan, int cantTriatGanados, Datos
 {
 }
 
+
 Triatlonista::~Triatlonista()
 {
 }
 
 
 
-string Triatlonista::toString()
+string Triatlonista::toString() const
 {
 	stringstream r;
-	r << "Cantidad de participaciones en ironman: " << cantiParticEnIronMan << endl;
-	r << "Cantidad dr Triatlones ganados: " << cantTriatGanados << endl;
+	
+	r << corredor->toString() << endl;
+	r << ciclista->toString() << endl;
+	r << nadador->toString() << endl;
+	r << "Triatlones ganados: " << triaGanados << endl;
+	r << "Triatlones participados: " << triaParticipados << endl;
+
 	return r.str();
 }
