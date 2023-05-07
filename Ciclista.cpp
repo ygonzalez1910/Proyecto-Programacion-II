@@ -1,5 +1,7 @@
 #include "Ciclista.h"
 #include <sstream>
+using std::stringstream;
+
 Ciclista::Ciclista(string cedula, string nombre, string telefono, Fecha* nacimiento,
 	int horasEntrenamiento, double temPromedio)
 	:cedula(cedula),nombre(nombre),telefono(telefono),nacimiento(nacimiento),

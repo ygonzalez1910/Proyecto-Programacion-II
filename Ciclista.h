@@ -2,6 +2,7 @@
 #include "Deportista.h"
 #include "DatosBiometricos.h"
 
+
 class Ciclista : public Deportista
 {
 public:
