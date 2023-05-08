@@ -9,18 +9,19 @@ public:
 	~Corredor();
 	string toString() const;
 
-	virtual string cedula() const;
-	virtual string nombre() const;
-	virtual string telefono() const;
-	virtual Fecha* nacimiento() const;
+	virtual string getcedula() const;
+	virtual string getnombre() const;
+	virtual string gettelefono() const;
+	virtual Fecha* getnacimiento() const;
 	virtual string infoAdi() const;
 	virtual string info() const;
 
 protected:
-	string cedula;
+	
+	/*string cedula;
 	string nombre;
 	string telefono;
-	Fecha* nacimiento;
+	Fecha* nacimiento;*/
 	char sexo;
 	double estatura;
 	

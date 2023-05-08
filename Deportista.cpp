@@ -2,17 +2,20 @@
 #include <sstream>
 using std::stringstream;
 
+Deportista::Deportista(string cedula, string nombre, string telefono, Fecha* nacimiento)
+	:cedula(cedula),nombre(nombre),telefono(telefono),nacimiento(nacimiento)
+{
+}
+
 string Deportista::toString() const
 {
 	stringstream r;
 
-	r << "Cedula: " << cedula() << endl;
-	r << "Cedula: " << cedula() << endl;
-	r << "Cedula: " << cedula() << endl;
-	r << "Cedula: " << cedula() << endl;
-	r << "Info adicional: " << cedula() << endl;
+	r << "Cedula: " << getcedula() << endl;
+	r << "Nombre: " << getnombre() << endl;
+	r << "Telefono: " << gettelefono() << endl;
+	r << "Fecha nacimiento: " << getnacimiento() << endl;
+	r << "Info adicional: " << infoAdi() << endl;
 
-	//temrinar
-
-	return string();
+	return r.str();
 }

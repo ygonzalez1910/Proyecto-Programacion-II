@@ -6,7 +6,7 @@ class Fecha
 {
 public:
 	Fecha();
-	~Fecha();
+	virtual ~Fecha();
 	string sacarEdad();
 private:
 

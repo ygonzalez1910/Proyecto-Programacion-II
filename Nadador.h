@@ -4,14 +4,14 @@
 class Nadador : public Deportista 
 {
 public:
-	Nadador(double, double, double);
+	Nadador(string, string, string, Fecha*, double, double, double);
 	virtual ~Nadador();
 	virtual string toString();
 
-	virtual string cedula() const;
-	virtual string nombre() const;
-	virtual string telefono() const;
-	virtual Fecha* nacimiento() const;
+	virtual string getcedula() const;
+	virtual string getnombre() const;
+	virtual string gettelefono() const;
+	virtual Fecha* getnacimiento() const;
 	virtual string infoAdi() const;
 	virtual string info() const;
 	
