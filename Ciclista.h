@@ -10,10 +10,10 @@ public:
 	virtual ~Ciclista();
 	virtual string toString() const;
 
-	virtual string cedula() const;
-	virtual string nombre() const;
-	virtual string telefono() const;
-	virtual Fecha* nacimiento() const;
+	virtual string getcedula() const;
+	virtual string getnombre() const;
+	virtual string gettelefono() const;
+	virtual Fecha* getnacimiento() const;
 	virtual string infoAdi() const;
 	virtual string info() const;
 
@@ -24,6 +24,6 @@ protected:
 	Fecha* nacimiento;
 	int horasEntrenamiento;
 	double temPromedio;
-	//DatosBiometricos datosBiometricos;
+	
 };
 

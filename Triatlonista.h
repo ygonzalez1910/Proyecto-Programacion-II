@@ -7,13 +7,18 @@ using namespace std;
 class Triatlonista : public Deportista
 {
 public:
-	Triatlonista(Deportista*, Deportista*, Deportista*, int, int);
+	Triatlonista(Deportista*, int, int, bool); //Triatlonista(Deportista*, Deportista*, Deportista*,int, int, bool);
 	virtual ~Triatlonista();
 	virtual string toString() const;
+
+	virtual void setCedula(string);
+	virtual void setNombre(string);
+	virtual void setTelefono(string);
+	virtual void setNacimiento(Fecha*);
+	virtual void setEstado(bool);
+
 private:
-	Deportista* corredor;
-	Deportista* nadador;
-	Deportista* ciclista;
+	Deportista* base;
 	int triaGanados;
 	int triaParticipados;
 	bool estado;

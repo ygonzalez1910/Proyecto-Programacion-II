@@ -9,3 +9,4 @@ public:
 
 };
 
+ostream& operator << (ostream&, const ObjetoBase&);

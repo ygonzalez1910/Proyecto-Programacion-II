@@ -23,17 +23,19 @@ void Menu::menuPrincipal() {
 void Menu::iniciar() {
 
 	string nombre, id;
+	bool estado = true;
 
-	Deportista* corredor = new Corredor(); //
-	Deportista* ciclista = new Ciclista();
-	Deportista* nadador = new Nadador();
+	Deportista* corredor; //
+	Deportista* ciclista;
+	Deportista* nadador;
 
-	int triaGanados;
-	int triaParticipados;
+	int triaGanados = 0;
+	int triaParticipados = 0;
 
-	Triatlonista* tria = new Triatlonista(corredor, ciclista, nadador, triaGanados, triaParticipados);
+	Triatlonista* tria;
 
 	IteradorLista<Triatlonista>* it;
+
 	do {
 		system("cls");
 		menuPrincipal();
@@ -48,18 +50,18 @@ void Menu::iniciar() {
 			cin >> nombre;
 			cout << "\nDigite el id: ";
 			cin >> id;
-			tria = new Triatlonista(nombre, id);
-			triatlonistas->agregar(tria);
+			//tria = new Triatlonista();
+			//triatlonistas->agregar(tria);
 			cout << "\nCliente agregado exitosamente.";
 			system("pause");
 			break;
 		case 2:
 			system("cls");
 			cout << "\n------ MOSTRAR CLIENTES ------";
-			it = clientes->obtenerIterador();
+			it = triatlonistas->obtenerIterador();
 			while (it->masElementos()) {
-				cliente = it->proximoElemento();
-				cout << "\n" << cliente->toString();
+				tria = it->proximoElemento();
+				cout << "\n" << tria->toString();
 			}
 			delete it;
 			system("pause");
@@ -67,24 +69,24 @@ void Menu::iniciar() {
 		case 3:
 			system("cls");
 			cout << "\n------ ACTULIZAR CLIENTE ------";
-			it = clientes->obtenerIterador();
+			it = triatlonistas->obtenerIterador();
 			while (it->masElementos()) {
-				cliente = it->proximoElemento();
+				tria = it->proximoElemento();
 				cout << "\nDigite el id del cliente: ";
 				cin >> id;
-				if (id == cliente->getID()) {
-					cout << "\n" << cliente->toString();
-					cout << "\nDigite el nuevo nombre: ";
-					cin >> nombre;
-					cliente->setNombre(nombre);
-					cout << "\nCliente actualizado exitosamente.";
-					break;
-				}
-
+				if (id == tria->getcedula()) {
+				cout << "\n" << tria->toString();
+				cout << "\nDigite el nuevo nombre: ";
+				cin >> nombre;
+				tria->setNombre(nombre);
+				cout << "\nCliente actualizado exitosamente.";
+				break;
 			}
-			delete it;
-			system("pause");
-			break;
+
+		}
+		delete it;
+		system("pause");
+		break;
 		case 4:
 			system("cls");
 			cout << "\nGracias por utilizar la aplicacion";
@@ -96,7 +98,8 @@ void Menu::iniciar() {
 			system("pause");
 			break;
 
-		}
+	}
 
-	} while (opcion != 4);
+}while (opcion != 4);
+
 }

@@ -1,12 +1,18 @@
 #include "Triatlonista.h"
 #include <sstream>
 
-Triatlonista::Triatlonista(int cantiParticEnIronMan, int cantTriatGanados, DatosBiometricos* datos)
-	:cantiParticEnIronMan(cantiParticEnIronMan), cantTriatGanados(cantTriatGanados),datos(NULL),
-	Deportista(cedula, nombre, numeroTelefono, fechaNacimiento, fechaRegistro)
+Triatlonista::Triatlonista(Deportista* base,int triaGanados, int triaParticipados, bool estado)
+	: base(base),
+	triaGanados(triaGanados), triaParticipados(triaParticipados),estado(estado),pago(false)
 {
 }
 
+/*Triatlonista::Triatlonista(Deportista* corredor, Deportista* nadador, Deportista* ciclista, 
+int triaGanados, int triaParticipados, bool estado)
+	: corredor(corredor), nadador(nadador),ciclista(ciclista),
+	triaGanados(triaGanados), triaParticipados(triaParticipados),estado(estado),pago(false)
+{
+}*/
 
 Triatlonista::~Triatlonista()
 {
@@ -25,4 +31,37 @@ string Triatlonista::toString() const
 	r << "Triatlones participados: " << triaParticipados << endl;
 
 	return r.str();
+}
+
+void Triatlonista::setCedula(string cedula)
+{
+	cedula = cedula;
+}
+
+void Triatlonista::setNombre(string nombre)
+{
+	nombre = nombre;
+}
+
+void Triatlonista::setTelefono(string telefono)
+{
+	telefono = telefono;
+}
+
+void Triatlonista::setNacimiento(Fecha* nacimiento)
+{
+	nacimiento = nacimiento;
+}
+
+void Triatlonista::setEstado(bool e)
+{
+	if (!e) {
+		estado = e;
+	}
+	else if(e) {
+		estado == e;
+	}
+	else {
+		throw invalid_argument("Tipo de estado no admitido.");
+	}
 }

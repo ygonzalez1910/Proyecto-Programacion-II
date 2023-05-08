@@ -1,5 +1,5 @@
 #include "Fecha.h"
-#include <ctime>
+/*#include <ctime>
 #include <sstream>
 using std::stringstream;
 
@@ -24,4 +24,13 @@ string Fecha::sacarEdad()
     r << "La fecha y hora son: " << date_time << endl;
 
     return r.str();
+}
+*/
+
+Fecha::Fecha()
+{
+}
+
+Fecha::~Fecha()
+{
 }
