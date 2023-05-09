@@ -41,6 +41,21 @@ string Nadador::info() const
 	return r.str();
 }
 
+void Nadador::setCedula(string cedula)
+{
+	this->cedula = cedula;
+}
+
+void Nadador::setNombre(string nombre)
+{
+	this->nombre = nombre;
+}
+
+void Nadador::setNacimiento(int dia, int mes, int ano)
+{
+	nacimiento = new Fecha(dia, mes, ano);
+}
+
 
 string Nadador::toString()
 {

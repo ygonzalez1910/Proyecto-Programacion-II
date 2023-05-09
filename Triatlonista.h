@@ -1,8 +1,5 @@
 #pragma once
-#include "Deportista.h"
 #include "DatosBiometricos.h"
-using namespace std;
-#include <iostream>
 #include "Corredor.h"
 #include "Nadador.h"
 #include "Ciclista.h"
@@ -17,11 +14,20 @@ public:
 	virtual void setCedula(string);
 	virtual void setNombre(string);
 	virtual void setTelefono(string);
-	virtual void setNacimiento(Fecha*);
+	virtual void setNacimiento(int,int,int);
 	virtual void setEstado(bool);
 
+	virtual string getcedula() const;
+	virtual string getnombre() const;
+	virtual string gettelefono() const;
+	virtual Fecha* getnacimiento() const;
+	virtual string infoAdi() const;
+	virtual string info() const;
+
 private:
-	Deportista* base;
+	Corredor* corredor;
+	Nadador* nadador;
+	Ciclista* ciclista;
 	int triaGanados;
 	int triaParticipados;
 	bool estado;

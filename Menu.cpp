@@ -22,15 +22,28 @@ void Menu::menuPrincipal() {
 
 void Menu::iniciar() {
 
-	string nombre, id;
-	bool estado = true;
-
-	Deportista* corredor; //
-	Deportista* ciclista;
-	Deportista* nadador;
-
+	//depor
+	string nombre, cedula, telefono;
+	int dia = 0, mes = 0, anio = 0;
+	Fecha* fecha ;
+	//tria
+	bool estado;
 	int triaGanados = 0;
 	int triaParticipados = 0;
+	
+	Deportista* corredor; 
+	Deportista* ciclista;
+	Deportista* nadador;
+	//ci
+	int horasEntrenamiento = 0;
+	double temPromedio = 0.0;
+	//na
+	double masaMuscular = 0.0;
+	double peso = 0.0;
+	double porcentajeGrasaCorporal = 0.0;
+	//co
+	char sexo;
+	double estatura = 0.0;
 
 	Triatlonista* tria;
 
@@ -48,13 +61,70 @@ void Menu::iniciar() {
 			cout << "\n------ INGRESAR CLIENTE ------";
 			cout << "\nDigite el nombre: ";
 			cin >> nombre;
-			cout << "\nDigite el id: ";
-			cin >> id;
-			//tria = new Triatlonista();
-			//triatlonistas->agregar(tria);
+			cout << "\nDigite la cedula: ";
+			cin >> cedula;
+			cout << "\nDigite el numero de telefono: ";
+			cin >> telefono;
+			cout << "\nDigite la fecha de nacimiento en formato DD/MM/AA: ";
+			cout << "Dia: ";
+			cin >> dia;
+			cout << "Mes: ";
+			cin >> mes;
+			cout << "Anio: ";
+			cin >> anio;
+			fecha = new Fecha(dia, mes, anio);
+			do{
+				cout << "En cuantos triatlones ha participado: ";
+				cin >> triaParticipados;
+				if (triaParticipados > 0) {
+					cout << "Cuantos triatlones ha ganado: ";
+					cin >> triaGanados;
+					if (triaGanados > triaParticipados || triaGanados < 0) {
+						cout << "Numero no valido, ingreselo otra vez." << endl;
+					}
+				}
+				else {
+				cout << "Numero no valido, ingreselo otra vez." << endl;
+				}
+			} while (triaGanados < triaParticipados && triaGanados > 0);
+			
+			cout << "Ingrese sus horas de entramiento: ";
+			cin >> horasEntrenamiento;
+
+			cout << "Ingrese su temp promedio: ";
+			cin >> temPromedio;
+
+			do {
+				cout << "Indique su sexo: (M/F/X)";
+				cin >> sexo;
+			} while (sexo == 'M' || sexo == 'F' || sexo == 'X');
+
+			cout << "Introduzca su estatura: ";
+			cin >> estatura;
+
+			cout << "Introduzca su peso: ";
+			cin >> peso;
+
+			cout << "Introduzca su masa muscular: ";
+			cin >> masaMuscular;
+
+			cout << "Introduzca su porcentaje grasa corporal: ";
+			cin >> porcentajeGrasaCorporal;
+
+			estado = true;
+
+			corredor = new Corredor(cedula, nombre, telefono, fecha, sexo, estatura);
+			nadador = new Nadador(cedula, nombre, telefono, fecha, masaMuscular, peso, porcentajeGrasaCorporal);
+			ciclista = new Ciclista(cedula, nombre, telefono, fecha, horasEntrenamiento, temPromedio);
+
+			tria = new Triatlonista(corredor, nadador, ciclista, triaGanados, triaParticipados, estado);
+			triatlonistas->agregar(tria);
 			cout << "\nCliente agregado exitosamente.";
+			delete fecha;
+			delete tria;
 			system("pause");
 			break;
+
 		case 2:
 			system("cls");
 			cout << "\n------ MOSTRAR CLIENTES ------";
@@ -72,8 +142,8 @@ void Menu::iniciar() {
 			it = triatlonistas->obtenerIterador();
 			while (it->masElementos()) {
 				tria = it->proximoElemento();
-				cout << "\nDigite el id del cliente: ";
-				cin >> id;
+				cout << "\nDigite el cedula del cliente: ";
+				cin >> cedula;
 				///*
 				//*/if (id == tria->getCedula()) {
 				//cout << "\n" << tria->toString();

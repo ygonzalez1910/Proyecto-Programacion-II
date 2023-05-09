@@ -5,17 +5,19 @@ using namespace std;
 class Fecha
 {
 public:
-	Fecha(int, int, int);
+	Fecha(int=0, int=0, int=0);
 	virtual ~Fecha();
-	string sacarEdad();
-	int setFechaRegistro(int,int,int);
-	string toStringFechaActual();
+	//string sacarEdad();
+
+	virtual void setDia(int);
+	virtual void setMes(int);
+	virtual void setAnio(int);
+
+	virtual string toStringFechaActual();
+
 private:
-	int diaActual;
-	int mesActual;
-	int anioActual;
-	int diaRegistro;
-	int mesRegistro;
-	int anioRegistro;
+	int dia;
+	int mes;
+	int anio;
 };
 

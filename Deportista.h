@@ -15,7 +15,7 @@ public:
 	virtual Fecha* getnacimiento() const = 0;
 	virtual string infoAdi() const = 0;
 
-	virtual void setCedula(int) = 0;
+	virtual void setCedula(string) = 0;
 	virtual void setNombre(string) = 0;
 	virtual void setTelefono(string) = 0;
 	virtual void setNacimiento(int, int, int) = 0;

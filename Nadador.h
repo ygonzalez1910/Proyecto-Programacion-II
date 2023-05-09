@@ -14,6 +14,13 @@ public:
 	virtual Fecha* getnacimiento() const;
 	virtual string infoAdi() const;
 	virtual string info() const;
+
+	virtual void setCedula(string);
+	virtual void setNombre(string);
+	virtual void setTelefono(string);
+	virtual void setNacimiento(int, int, int);
+	virtual void setEstado(char);
+
 	
 protected:
 	string cedula;
