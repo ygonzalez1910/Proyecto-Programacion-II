@@ -5,13 +5,18 @@ Nadador::Nadador(string cedula, string nombre, string telefono, Fecha* nacimient
 	, double masaMuscular, double peso, double porcentajeGrasaCorporal)
 	:Deportista(cedula, nombre, telefono, nacimiento),
 	masaMuscular(masaMuscular), peso(peso),
-	porcentajeGrasaCorporal(porcentajeGrasaCorporal){
+	porcentajeGrasaCorporal(porcentajeGrasaCorporal),estado(estado) {
 }
 
 Nadador::~Nadador()
 {
 }
 
+
+string Nadador::getcedula() const
+{
+	return string();
+}
 
 string Nadador::getnombre() const
 {
@@ -51,9 +56,19 @@ void Nadador::setNombre(string nombre)
 	this->nombre = nombre;
 }
 
+void Nadador::setTelefono(string telefono)
+{
+	this->telefono = telefono;
+}
+
 void Nadador::setNacimiento(int dia, int mes, int ano)
 {
 	nacimiento = new Fecha(dia, mes, ano);
+}
+
+void Nadador::setEstado(char estado)
+{
+	this->estado = estado;
 }
 
 

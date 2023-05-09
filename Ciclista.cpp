@@ -5,7 +5,7 @@ using std::stringstream;
 Ciclista::Ciclista(string cedula, string nombre, string telefono, Fecha* nacimiento,
 	int horasEntrenamiento, double temPromedio)
 	:Deportista(cedula, nombre, telefono, nacimiento),
-	horasEntrenamiento(horasEntrenamiento), temPromedio(temPromedio)
+	horasEntrenamiento(horasEntrenamiento), temPromedio(temPromedio),estado(estado)
 {
 }
 
@@ -46,6 +46,30 @@ string Ciclista::info() const
 	r << "Temp promedio: " << temPromedio << endl;
 
 	return r.str();
+}
+
+void Ciclista::setCedula(string cedula)
+{
+	this-> cedula = cedula;
+}
+
+void Ciclista::setNombre(string nombre)
+{
+	this->nombre = nombre;
+}
+
+void Ciclista::setTelefono(string telefono)
+{
+	this->telefono = telefono;
+}
+
+void Ciclista::setNacimiento(int, int, int)
+{
+}
+
+void Ciclista::setEstado(char estado)
+{
+	this->estado = estado;
 }
 
 

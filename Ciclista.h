@@ -30,6 +30,6 @@ protected:
 	Fecha* nacimiento;
 	int horasEntrenamiento;
 	double temPromedio;
-	
+	char estado;
 };
 

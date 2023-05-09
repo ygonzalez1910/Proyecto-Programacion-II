@@ -3,7 +3,7 @@
 using std::stringstream;
 
 Corredor::Corredor(string cedula, string nombre, string telefono, Fecha* nacimiento, char sexo, double estatura)
-	: Deportista(cedula, nombre, telefono, nacimiento), sexo(sexo), estatura(estatura)
+	: Deportista(cedula, nombre, telefono, nacimiento), sexo(sexo), estatura(estatura),estado(estado)
 {
 }
 
@@ -52,4 +52,29 @@ string Corredor::infoAdi() const
 	r << "Estatura: " << estatura << endl;
 
 	return r.str();
+}
+
+void Corredor::setCedula(string cedula)
+{
+	this->cedula = cedula;
+}
+
+void Corredor::setNombre(string nombre)
+{
+	this->nombre = nombre;
+}
+
+void Corredor::setTelefono(string nombre)
+{
+	this->telefono = telefono;
+}
+
+void Corredor::setNacimiento(Fecha dia, Fecha mes, Fecha anio)
+{
+	
+}
+
+void Corredor::setEstado(char estado)
+{
+	this->estado = estado;
 }

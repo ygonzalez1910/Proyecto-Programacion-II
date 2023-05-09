@@ -26,6 +26,7 @@ protected:
 	string cedula;
 	string nombre;
 	string telefono;
+	char estado;
 	Fecha* nacimiento;
 	double masaMuscular;
 	double peso;

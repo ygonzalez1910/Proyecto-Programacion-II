@@ -28,6 +28,21 @@ void Fecha::setAnio(int anio)
     this->anio = anio;
 }
 
+int Fecha::getAnio()
+{
+    return anio;
+}
+
+int Fecha::getDia()
+{
+    return dia;
+}
+
+int Fecha::getMes()
+{
+    return mes;
+}
+
 string Fecha::toStringFechaActual()
 {
     stringstream r;

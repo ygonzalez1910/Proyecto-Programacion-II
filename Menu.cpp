@@ -4,7 +4,7 @@ using namespace std;
 #include "Menu.h"
 
 
-Menu::Menu() : opcion(0), triatlonistas(new Lista<Triatlonista>()) {
+Menu::Menu() : opcion(0), triatlonistas(new Lista<Triatlonista>()), grupos(new Lista<Grupo>()) {
 
 }
 
@@ -22,6 +22,12 @@ void Menu::menuPrincipal() {
 
 void Menu::iniciar() {
 
+
+	//implementacion de listas
+	Lista<Triatlonista> listaTriatlonista;
+	Lista<Curso> listaCurso;
+	Lista<Grupo> listaGrupo;
+	
 	//depor
 	string nombre, cedula, telefono;
 	int dia = 0, mes = 0, anio = 0;
@@ -31,9 +37,9 @@ void Menu::iniciar() {
 	int triaGanados = 0;
 	int triaParticipados = 0;
 	
-	Deportista* corredor; 
-	Deportista* ciclista;
-	Deportista* nadador;
+	Corredor* corredor; 
+	Ciclista* ciclista;
+	Nadador* nadador;
 	//ci
 	int horasEntrenamiento = 0;
 	double temPromedio = 0.0;
@@ -128,7 +134,7 @@ void Menu::iniciar() {
 		case 2:
 			system("cls");
 			cout << "\n------ MOSTRAR CLIENTES ------";
-			it = triatlonistas->obtenerIterador();
+			it = listaTriatlonista.obtenerIterador();
 			while (it->masElementos()) {
 				tria = it->proximoElemento();
 				cout << "\n" << tria->toString();
@@ -138,18 +144,27 @@ void Menu::iniciar() {
 			break;
 		case 3:
 			system("cls");
-			cout << "\n------ ACTULIZAR CLIENTE ------";
-			it = triatlonistas->obtenerIterador();
+			cout << "\n------ ACTUALIZAR CLIENTE INFORMACION DE CLIENTE ------";
+			it = listaTriatlonista.obtenerIterador();
 			while (it->masElementos()) {
 				tria = it->proximoElemento();
-				cout << "\nDigite el cedula del cliente: ";
+				cout << "\nDigite la cedula del cliente al que desea actualizar sus datos: ";
 				cin >> cedula;
 				///*
 				//*/if (id == tria->getCedula()) {
 				//cout << "\n" << tria->toString();
-				//cout << "\nDigite el nuevo nombre: ";
-				//cin >> nombre;
-				//tria->setNombre(nombre);
+				//cout << "\nEstatura:  ";
+				//cin >> estatura;
+				//tria->setEstatura(estatura);
+				// //cout << "\nPeso:  ";
+				//cin >> peso;
+				//tria->setPeso(peso);
+				// //cout << "\nPorcentaje de grasa corporal:  ";
+				//cin >> porcentajeGrasa;
+				//tria->setPorcentajeGrasa(porcentajeGrasa);
+				// //cout << "\nPorcentaje masa muscular:  ";
+				//cin >> porcentajeMasaMuscular;
+				//tria->setPorcentajeMasaMuscular(porcentajeMasaMuscular);
 				//cout << "\nCliente actualizado exitosamente.";
 				//break;
 				//}

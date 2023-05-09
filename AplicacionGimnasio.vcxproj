@@ -136,6 +136,7 @@
     <ClCompile Include="Deportista.cpp" />
     <ClCompile Include="Fecha.cpp" />
     <ClCompile Include="Gimnasio.cpp" />
+    <ClCompile Include="Grupo.cpp" />
     <ClCompile Include="Lista.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Nadador.cpp" />
@@ -151,6 +152,7 @@
     <ClInclude Include="Deportista.h" />
     <ClInclude Include="Fecha.h" />
     <ClInclude Include="Gimnasio.h" />
+    <ClInclude Include="Grupo.h" />
     <ClInclude Include="Lista.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Nadador.h" />

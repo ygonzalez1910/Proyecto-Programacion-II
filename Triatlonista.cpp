@@ -4,8 +4,8 @@
 Triatlonista::Triatlonista(Corredor* corredor, Nadador* nadador, Ciclista* ciclista, 
 int triaGanados, int triaParticipados, bool estado)
 	: corredor(corredor), nadador(nadador),ciclista(ciclista),
-	triaGanados(triaGanados), triaParticipados(triaParticipados),estado(estado),pago(false)
-{
+	triaGanados(triaGanados), triaParticipados(triaParticipados),estado(estado),pago(false){
+
 }
 
 

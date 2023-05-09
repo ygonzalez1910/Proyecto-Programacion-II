@@ -1,22 +1,24 @@
 #pragma once
 #include "Triatlonista.h"
 #include "Lista.h"
+#include "Grupo.h"
 class Curso
 {
 public:
 	Curso(string, char, Fecha*, int);
 	virtual ~Curso();
 	bool lleno();
-	void hacerReservacion(Triatlonista*);
-	void cancelacion();
-	// no se si debe ser puntero o no, si no es puntero, deportista deja de ser una clase abstracta porque Triatlonista hereda de ella 
-	//tiene que ser puntero porque se necesita ese objeto especifico
+	virtual void hacerReservacion(Triatlonista*);
+	virtual void cancelacionReservacion();
+	virtual void agregarGrupo(Grupo*);
+	virtual string toString();
 private:
 	string descripcionCurso;
 	char nivel;
 	Fecha* fechaCurso;
 	int horario;
-	int cupoMaximo;
-	int cantidad;
-};
+	Grupo* grupos;
+	Lista<Triatlonista>* listaReservaciones;
+	Lista<Grupo>* listaGrupo;
 
+};

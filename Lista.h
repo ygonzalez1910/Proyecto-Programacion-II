@@ -20,6 +20,7 @@ public:
 	virtual IteradorLista<T>* obtenerIterador() const;
 
 private:
+	T* elementos;
 	Nodo<T>* primero;
 	Nodo<T>* actual;
 

@@ -19,7 +19,7 @@ public:
 	virtual void setCedula(string);
 	virtual void setNombre(string);
 	virtual void setTelefono(string);
-	virtual void setNacimiento(int, int, int);
+	virtual void setNacimiento(Fecha, Fecha, Fecha);
 	virtual void setEstado(char);
 
 protected:
@@ -28,8 +28,10 @@ protected:
 	string nombre;
 	string telefono;
 	Fecha* nacimiento;*/
+	Fecha fecha;
 	char sexo;
 	double estatura;
+	char estado;
 	
 };
 
