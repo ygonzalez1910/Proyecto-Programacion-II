@@ -1,17 +1,9 @@
 #include "Fecha.h"
-/*#include <ctime>
+#include <ctime>
 #include <sstream>
 using std::stringstream;
 
-Fecha::Fecha()
-{
-}
-
-Fecha::~Fecha()
-{
-}
-
-string Fecha::sacarEdad()
+/*string Fecha::sacarEdad()
 {      //esto es una prueba para recoger el tiempo del sistema, falta saber como utilizarlo en lkos metodo
     stringstream r;
 
@@ -27,10 +19,24 @@ string Fecha::sacarEdad()
 }
 */
 
-Fecha::Fecha()
+Fecha::Fecha(int, int, int) :diaActual(diaActual), mesActual(mesActual),anioActual(anioActual)
 {
 }
 
 Fecha::~Fecha()
 {
+}
+
+
+int Fecha::setFechaRegistro(int diaRegistro, int mesRegistro, int anioRegistro)
+{
+    return diaRegistro = diaRegistro, mesRegistro = mesRegistro, 
+        anioRegistro = anioRegistro;
+}
+
+string Fecha::toStringFechaActual()
+{
+    stringstream r;
+    r << "Fecha: " << diaActual << " " << mesActual << " " << anioActual << "\n";
+    return r.str();
 }
