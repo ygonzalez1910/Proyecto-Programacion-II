@@ -12,13 +12,10 @@ Nadador::~Nadador()
 {
 }
 
-string Nadador::getcedula() const
-{
-	return cedula;
-}
 
 string Nadador::getnombre() const
 {
+	
 	return nombre;
 }
 

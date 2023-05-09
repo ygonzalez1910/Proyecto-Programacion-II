@@ -74,16 +74,18 @@ void Menu::iniciar() {
 				tria = it->proximoElemento();
 				cout << "\nDigite el id del cliente: ";
 				cin >> id;
-				if (id == tria->getcedula()) {
-				cout << "\n" << tria->toString();
-				cout << "\nDigite el nuevo nombre: ";
-				cin >> nombre;
-				tria->setNombre(nombre);
-				cout << "\nCliente actualizado exitosamente.";
-				break;
-			}
-
+				///*
+				//*/if (id == tria->getCedula()) {
+				//cout << "\n" << tria->toString();
+				//cout << "\nDigite el nuevo nombre: ";
+				//cin >> nombre;
+				//tria->setNombre(nombre);
+				//cout << "\nCliente actualizado exitosamente.";
+				//break;
+				//}
+				
 		}
+			break;
 		delete it;
 		system("pause");
 		break;

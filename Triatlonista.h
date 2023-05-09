@@ -3,11 +3,14 @@
 #include "DatosBiometricos.h"
 using namespace std;
 #include <iostream>
+#include "Corredor.h"
+#include "Nadador.h"
+#include "Ciclista.h"
 
-class Triatlonista : public Deportista
+class Triatlonista
 {
 public:
-	Triatlonista(Deportista*, int, int, bool); //Triatlonista(Deportista*, Deportista*, Deportista*,int, int, bool);
+	Triatlonista(Corredor*, Nadador*, Ciclista*, int, int, bool);
 	virtual ~Triatlonista();
 	virtual string toString() const;
 
@@ -18,7 +21,9 @@ public:
 	virtual void setEstado(bool);
 
 private:
-	Deportista* base;
+	Deportista* corredor;
+	Deportista* nadador;
+	Deportista* ciclista;
 	int triaGanados;
 	int triaParticipados;
 	bool estado;

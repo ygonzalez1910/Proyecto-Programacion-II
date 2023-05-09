@@ -1,18 +1,13 @@
 #include "Triatlonista.h"
 #include <sstream>
 
-Triatlonista::Triatlonista(Deportista* base,int triaGanados, int triaParticipados, bool estado)
-	: base(base),
-	triaGanados(triaGanados), triaParticipados(triaParticipados),estado(estado),pago(false)
-{
-}
 
-/*Triatlonista::Triatlonista(Deportista* corredor, Deportista* nadador, Deportista* ciclista, 
+Triatlonista::Triatlonista(Corredor* corredor, Nadador* nadador, Ciclista* ciclista, 
 int triaGanados, int triaParticipados, bool estado)
 	: corredor(corredor), nadador(nadador),ciclista(ciclista),
 	triaGanados(triaGanados), triaParticipados(triaParticipados),estado(estado),pago(false)
 {
-}*/
+}
 
 Triatlonista::~Triatlonista()
 {
@@ -59,7 +54,7 @@ void Triatlonista::setEstado(bool e)
 		estado = e;
 	}
 	else if(e) {
-		estado == e;
+		estado = e;
 	}
 	else {
 		throw invalid_argument("Tipo de estado no admitido.");
