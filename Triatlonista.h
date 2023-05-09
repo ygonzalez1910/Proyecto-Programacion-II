@@ -21,9 +21,7 @@ public:
 	virtual void setEstado(bool);
 
 private:
-	Deportista* corredor;
-	Deportista* nadador;
-	Deportista* ciclista;
+	Deportista* base;
 	int triaGanados;
 	int triaParticipados;
 	bool estado;

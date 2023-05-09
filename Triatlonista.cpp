@@ -9,6 +9,7 @@ int triaGanados, int triaParticipados, bool estado)
 {
 }
 
+
 Triatlonista::~Triatlonista()
 {
 }
@@ -26,37 +27,4 @@ string Triatlonista::toString() const
 	r << "Triatlones participados: " << triaParticipados << endl;
 
 	return r.str();
-}
-
-void Triatlonista::setCedula(string cedula)
-{
-	cedula = cedula;
-}
-
-void Triatlonista::setNombre(string nombre)
-{
-	nombre = nombre;
-}
-
-void Triatlonista::setTelefono(string telefono)
-{
-	telefono = telefono;
-}
-
-void Triatlonista::setNacimiento(Fecha* nacimiento)
-{
-	nacimiento = nacimiento;
-}
-
-void Triatlonista::setEstado(bool e)
-{
-	if (!e) {
-		estado = e;
-	}
-	else if(e) {
-		estado = e;
-	}
-	else {
-		throw invalid_argument("Tipo de estado no admitido.");
-	}
 }
