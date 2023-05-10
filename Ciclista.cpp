@@ -33,10 +33,6 @@ Fecha* Ciclista::getnacimiento() const
 	return nacimiento;
 }
 
-string Ciclista::infoAdi() const
-{
-	return info();
-}
 
 string Ciclista::info() const
 {

@@ -35,8 +35,15 @@ void Curso::hacerReservacion(Triatlonista* triatlonista)
 		throw mensaje;
 	}
 }
-void Curso::cancelacionReservacion()
+void Curso::cancelacionReservacion(int numeroGrupo, string cedula)
 {
+	Grupo* aux;
+	for (int i = 0; i < MAX; i++) {
+		if (numeroGrupo == g->getNumero() && cedula == t) {
+			
+		}
+	}
+	
 
 }
 
@@ -52,6 +59,9 @@ string Curso::toString()
 	r << "Nivel: " << nivel << "\n";
 	r << "Fecha: " << fechaCurso << "\n";
 	r << "Horario: " << horario << "\n";
+	for (int x : grupos) {
+
+	}
 	r << "Grupos: " << "\n";
 	r << "Reservaciones realizadas: " << reservaciones << "\n";
 	return r.str();

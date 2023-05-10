@@ -9,6 +9,7 @@ public:
 	string toString();
 	void incrementarCantidadMatriculados();
 	int getCantidadMatriculados();
+	int getNumero();
 	int getCapacidad();
 private:
 	int numero;

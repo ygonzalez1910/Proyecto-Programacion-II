@@ -15,7 +15,7 @@ string Corredor::toString() const
 {
 	stringstream r;
 
-	r << infoAdi();
+	r << info();
 	r << "Nombre: " << nombre << endl;
 	r << "Cedula: " << cedula << endl;
 	r << "Telefono: " << telefono << endl;
@@ -44,7 +44,7 @@ Fecha* Corredor::getnacimiento() const
 	return nacimiento;
 }
 
-string Corredor::infoAdi() const
+string Corredor::info() const
 {
 	stringstream r;
 

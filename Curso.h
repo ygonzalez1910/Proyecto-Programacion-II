@@ -9,7 +9,7 @@ public:
 	virtual ~Curso();
 	bool lleno();
 	virtual void hacerReservacion(Triatlonista*);
-	virtual void cancelacionReservacion();
+	virtual void cancelacionReservacion(int,string);
 	virtual void agregarGrupo(Grupo*);
 	virtual string toString();
 	virtual void setGrupo(Grupo*);

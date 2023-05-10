@@ -30,6 +30,11 @@ int Grupo::getCantidadMatriculados()
 	return cantidadMatriculados;
 }
 
+int Grupo::getNumero()
+{
+	return numero;
+}
+
 int Grupo::getCapacidad()
 {
 	return capacidad;
