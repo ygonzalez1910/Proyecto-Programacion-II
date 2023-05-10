@@ -12,13 +12,17 @@ public:
 	virtual void cancelacionReservacion();
 	virtual void agregarGrupo(Grupo*);
 	virtual string toString();
+	virtual void setGrupo(Grupo*);
+
+	static const int MAX = 10;
 private:
+	int cantidad;
 	string descripcionCurso;
 	char nivel;
 	Fecha* fechaCurso;
 	int horario;
-	Grupo* grupos;
-	Lista<Triatlonista>* listaReservaciones;
-	Lista<Grupo>* listaGrupo;
+	Grupo* g;
+	Lista<Triatlonista>* reservaciones;
+	Lista<Grupo>* grupos;
 
 };

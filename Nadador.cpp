@@ -15,7 +15,7 @@ Nadador::~Nadador()
 
 string Nadador::getcedula() const
 {
-	return string();
+	return cedula;
 }
 
 string Nadador::getnombre() const
@@ -63,7 +63,7 @@ void Nadador::setTelefono(string telefono)
 
 void Nadador::setNacimiento(int dia, int mes, int ano)
 {
-	nacimiento = new Fecha(dia, mes, ano);
+	this->nacimiento = new Fecha(dia, mes, ano);
 }
 
 void Nadador::setEstado(char estado)

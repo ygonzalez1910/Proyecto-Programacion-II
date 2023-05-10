@@ -12,6 +12,13 @@ Fecha::~Fecha()
 {
 }
 
+string Fecha::toString() {
+    stringstream r;
+    r << "Dia: " << dia << endl;
+    r << "Mes: " << mes << endl;
+    r << "Anio: " << anio << endl;
+    return r.str();
+}
 
 void Fecha::setDia(int dia)
 {

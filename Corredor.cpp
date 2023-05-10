@@ -19,7 +19,7 @@ string Corredor::toString() const
 	r << "Nombre: " << nombre << endl;
 	r << "Cedula: " << cedula << endl;
 	r << "Telefono: " << telefono << endl;
-	r << "Nacimiento: " << /*nacimiento->toString() */ endl;
+	r << "Nacimiento: " << nacimiento->toString() << endl;
 
 	return r.str();
 }
@@ -69,9 +69,9 @@ void Corredor::setTelefono(string nombre)
 	this->telefono = telefono;
 }
 
-void Corredor::setNacimiento(Fecha dia, Fecha mes, Fecha anio)
+void Corredor::setNacimiento(int dia, int mes, int anio)
 {
-	
+	this->nacimiento = new Fecha(dia, mes, anio);
 }
 
 void Corredor::setEstado(char estado)

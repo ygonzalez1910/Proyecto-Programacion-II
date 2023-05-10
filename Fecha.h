@@ -17,13 +17,11 @@ public:
 	virtual int getMes();
 	virtual int getAnio();
 	virtual string toStringFechaActual();
-
+	virtual string toString();
+	
+private:
 	int dia;
 	int mes;
 	int anio;
-private:
-	/*int dia;
-	int mes;
-	int anio;*/
 };
 

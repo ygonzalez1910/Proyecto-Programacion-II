@@ -11,11 +11,10 @@ string Deportista::toString() const
 {
 	stringstream r;
 
-	r << "Cedula: " << getcedula() << endl;
-	r << "Nombre: " << getnombre() << endl;
-	r << "Telefono: " << gettelefono() << endl;
-	r << "Fecha nacimiento: " << getnacimiento() << endl;
-	r << "Info adicional: " << infoAdi() << endl;
+	r << "Cedula: " << cedula << endl;
+	r << "Nombre: " << nombre << endl;
+	r << "Telefono: " << telefono << endl;
+	r << "Fecha nacimiento: " << nacimiento << endl;
 
 	return r.str();
 }

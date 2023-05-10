@@ -2,21 +2,22 @@
 #include <sstream>
 using std::stringstream;
 
+const int Curso::MAX;
+
 Curso::Curso(string descripcionCurso, char nivel, Fecha* fechaCurso, int horario)
-	:descripcionCurso(descripcionCurso),nivel(nivel),fechaCurso(fechaCurso),horario(horario)
-	//,grupos(new Lista<Grupo>())
+	:descripcionCurso(descripcionCurso),nivel(nivel),fechaCurso(fechaCurso),horario(horario),g(nullptr)
+	,grupos(new Lista<Grupo>()),reservaciones(new Lista<Triatlonista>())
 
 {
 }
 
 Curso::~Curso()
 {
-	delete grupos;
 }
 
 bool Curso::lleno()
 {
-	return grupos->getCantidadMatriculados() == grupos->getCapacidad();
+	return g->getCantidadMatriculados() == MAX;
 }
 
 void Curso::hacerReservacion(Triatlonista* triatlonista)
@@ -27,7 +28,8 @@ void Curso::hacerReservacion(Triatlonista* triatlonista)
 	string mensaje = "El grupo ya se encuentra lleno...";
 
 	if (!lleno()) {
-		listaReservaciones->agregar(triatlonista);
+		reservaciones->agregar(triatlonista);
+		g->incrementarCantidadMatriculados();
 	}
 	else {
 		throw mensaje;
@@ -38,9 +40,9 @@ void Curso::cancelacionReservacion()
 
 }
 
-void Curso::agregarGrupo(Grupo* grupos)
+void Curso::agregarGrupo(Grupo* g)
 {
-	listaGrupo->agregar(grupos);
+	grupos->agregar(g);
 }
 
 string Curso::toString()
@@ -50,7 +52,11 @@ string Curso::toString()
 	r << "Nivel: " << nivel << "\n";
 	r << "Fecha: " << fechaCurso << "\n";
 	r << "Horario: " << horario << "\n";
-	r << "Grupos: " << listaGrupo << "\n";
-	r << "Reservaciones realizadas: " << listaReservaciones << "\n";
+	r << "Grupos: " << "\n";
+	r << "Reservaciones realizadas: " << reservaciones << "\n";
 	return r.str();
+}
+
+void Curso::setGrupo(Grupo* a) {
+	this->g = a;
 }

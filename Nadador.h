@@ -12,7 +12,6 @@ public:
 	virtual string getnombre() const;
 	virtual string gettelefono() const;
 	virtual Fecha* getnacimiento() const;
-	virtual string infoAdi() const;
 	virtual string info() const;
 
 	virtual void setCedula(string);

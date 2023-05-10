@@ -52,7 +52,6 @@ void Menu::iniciar() {
 	double estatura = 0.0;
 
 	Triatlonista* tria;
-
 	IteradorLista<Triatlonista>* it;
 
 	do {
