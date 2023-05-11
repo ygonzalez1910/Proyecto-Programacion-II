@@ -4,8 +4,8 @@ using std::stringstream;
 
 const int Curso::MAX;
 
-Curso::Curso(string descripcionCurso, char nivel, Fecha* fechaCurso, int horario)
-	:descripcionCurso(descripcionCurso),nivel(nivel),fechaCurso(fechaCurso),horario(horario),g(nullptr)
+Curso::Curso(string descripcionCurso, char nivel, Fecha* fechaCurso)
+	:cantidad(0),descripcionCurso(descripcionCurso),nivel(nivel),fechaCurso(fechaCurso),g(nullptr)
 	,grupos(new Lista<Grupo>()),reservaciones(new Lista<Triatlonista>())
 
 {
@@ -37,13 +37,13 @@ void Curso::hacerReservacion(Triatlonista* triatlonista)
 }
 void Curso::cancelacionReservacion(int numeroGrupo, string cedula)
 {
-	Grupo* aux;
-	for (int i = 0; i < MAX; i++) {
-		if (numeroGrupo == g->getNumero() && cedula == t) {
-			
-		}
-	}
-	
+	//Grupo* aux;
+	//for (int i = 0; i < MAX; i++) {
+	//	if (numeroGrupo == g->getNumero() && cedula == t) {
+	//		
+	//	}
+	//}
+	//
 
 }
 
@@ -57,11 +57,7 @@ string Curso::toString()
 	stringstream r;
 	r << "Descripcion del curso: " << descripcionCurso << "\n";
 	r << "Nivel: " << nivel << "\n";
-	r << "Fecha: " << fechaCurso << "\n";
-	r << "Horario: " << horario << "\n";
-	for (int x : grupos) {
-
-	}
+	r << "Fecha inicio: " << fechaCurso << "\n";
 	r << "Grupos: " << "\n";
 	r << "Reservaciones realizadas: " << reservaciones << "\n";
 	return r.str();

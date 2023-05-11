@@ -7,7 +7,6 @@ class Fecha
 public:
 	Fecha(int=0, int=0, int=0);
 	virtual ~Fecha();
-	//string sacarEdad();
 
 	virtual void setDia(int);
 	virtual void setMes(int);
@@ -16,12 +15,17 @@ public:
 	virtual int getDia();
 	virtual int getMes();
 	virtual int getAnio();
-	virtual string toStringFechaActual();
+	virtual void FechaActual();
 	virtual string toString();
+
+	int edad();
 	
 private:
 	int dia;
 	int mes;
 	int anio;
+	int dA;
+	int mA;
+	int aA;
 };
 

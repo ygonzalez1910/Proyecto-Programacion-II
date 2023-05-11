@@ -4,7 +4,8 @@ using namespace std;
 #include "Menu.h"
 
 
-Menu::Menu() : opcion(0), triatlonistas(new Lista<Triatlonista>()), grupos(new Lista<Grupo>()) {
+Menu::Menu() : opcion(0), triatlonistas(new Lista<Triatlonista>()), 
+grupos(new Lista<Grupo>()), cursos(new Lista<Curso>()) {
 
 }
 
@@ -17,17 +18,14 @@ void Menu::menuPrincipal() {
 	cout << "\n1. Ingresar cliente.";
 	cout << "\n2. Mostrar clientes.";
 	cout << "\n3. Actualizar cliente.";
-	cout << "\n4. Salir";
+	cout << "\n4. Agregar curso.";
+	cout << "\n6. Salir";
 }
 
 void Menu::iniciar() {
-
-
-	//implementacion de listas
-	Lista<Triatlonista> listaTriatlonista;
-	Lista<Curso> listaCurso;
-	Lista<Grupo> listaGrupo;
 	
+	//aqui no se declaran listas porque ya las tiene la clase inicializadas
+
 	//depor
 	string nombre, cedula, telefono;
 	int dia = 0, mes = 0, anio = 0;
@@ -50,9 +48,14 @@ void Menu::iniciar() {
 	//co
 	char sexo;
 	double estatura = 0.0;
+	char nivel = ' ';
+	string cc = " ";
+	int d = 0, m = 0, a = 0;
 
 	Triatlonista* tria;
+	Curso* curso;
 	IteradorLista<Triatlonista>* it;
+	IteradorLista<Curso>* itc;
 
 	do {
 		system("cls");
@@ -91,18 +94,34 @@ void Menu::iniciar() {
 				else {
 				cout << "Numero no valido, ingreselo otra vez." << endl;
 				}
-			} while (triaGanados < triaParticipados && triaGanados > 0);
+			} while (triaGanados > triaParticipados && triaGanados > 0);
 			
 			cout << "Ingrese sus horas de entramiento: ";
 			cin >> horasEntrenamiento;
 
 			cout << "Ingrese su temp promedio: ";
 			cin >> temPromedio;
+			
+			cout << "Indique su sexo: (M/F/X): ";
+			cin >> sexo;
 
-			do {
-				cout << "Indique su sexo: (M/F/X)";
+			try {
+				cout << "El genero elegido es: " << sexo << endl;
+				if (sexo != 'F' && sexo != 'M' && sexo != 'X') {
+					throw std::invalid_argument("Genero invalido");
+					
+				}
+
+			}
+			catch (exception& e) {
+				cerr << "Error: " << e.what() << endl;
+				cout << "Indique su sexo: (M/F/X): ";
 				cin >> sexo;
-			} while (sexo == 'M' || sexo == 'F' || sexo == 'X');
+			}
+
+			if (sexo == 'F' || sexo == 'M' || sexo == 'X') {
+				cout << "El sexo elegido es: " << sexo << endl;
+			}
 
 			cout << "Introduzca su estatura: ";
 			cin >> estatura;
@@ -124,16 +143,19 @@ void Menu::iniciar() {
 
 			tria = new Triatlonista(corredor, nadador, ciclista, triaGanados, triaParticipados, estado);
 			triatlonistas->agregar(tria);
+
 			cout << "\nCliente agregado exitosamente.";
+
 			delete fecha;
 			delete tria;
+
 			system("pause");
 			break;
 
 		case 2:
 			system("cls");
 			cout << "\n------ MOSTRAR CLIENTES ------";
-			it = listaTriatlonista.obtenerIterador();
+			it = triatlonistas->obtenerIterador();
 			while (it->masElementos()) {
 				tria = it->proximoElemento();
 				cout << "\n" << tria->toString();
@@ -144,7 +166,7 @@ void Menu::iniciar() {
 		case 3:
 			system("cls");
 			cout << "\n------ ACTUALIZAR CLIENTE INFORMACION DE CLIENTE ------";
-			it = listaTriatlonista.obtenerIterador();
+			it = triatlonistas->obtenerIterador();
 			while (it->masElementos()) {
 				tria = it->proximoElemento();
 				cout << "\nDigite la cedula del cliente al que desea actualizar sus datos: ";
@@ -174,6 +196,39 @@ void Menu::iniciar() {
 		system("pause");
 		break;
 		case 4:
+			system("cls");
+			
+			cout << "Digite el nombre del curso a crear: "; cin >> cc;
+			cout << "Digite el nivel del curso:\n (A: Avanzado. B: Intermedio. C: Principiante.): ";
+			cin >> nivel;
+			cout << "Digite la fecha de inicio del curso: "; cin >> d; cin >> m; cin >> a;
+			fecha = new Fecha(d, m, a);
+			curso = new Curso(cc, nivel, fecha);
+
+			cursos->agregar(curso);
+
+			delete curso;
+
+			//se cierra despues de utilizar este metodo por alguna razón
+
+			system("pause");
+		break;
+		case 5:
+			system("cls");
+
+			cout << "\n------ MOSTRAR CURSOS ------";
+			itc = cursos->obtenerIterador();
+			while (itc->masElementos()) {
+				curso = itc->proximoElemento();
+				cout << "\n" << curso->toString();
+			}
+			delete itc;
+
+
+
+			system("pause");
+			break;
+		case 6:
 			system("cls");
 			cout << "\nGracias por utilizar la aplicacion";
 			system("pause");

@@ -5,7 +5,7 @@
 class Curso
 {
 public:
-	Curso(string, char, Fecha*, int);
+	Curso(string, char, Fecha*);
 	virtual ~Curso();
 	bool lleno();
 	virtual void hacerReservacion(Triatlonista*);
@@ -20,7 +20,6 @@ private:
 	string descripcionCurso;
 	char nivel;
 	Fecha* fechaCurso;
-	int horario;
 	Grupo* g;
 	Lista<Triatlonista>* reservaciones;
 	Lista<Grupo>* grupos;

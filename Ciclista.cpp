@@ -5,7 +5,7 @@ using std::stringstream;
 Ciclista::Ciclista(string cedula, string nombre, string telefono, Fecha* nacimiento,
 	int horasEntrenamiento, double temPromedio)
 	:Deportista(cedula, nombre, telefono, nacimiento),
-	horasEntrenamiento(horasEntrenamiento), temPromedio(temPromedio),estado(estado)
+	horasEntrenamiento(horasEntrenamiento), temPromedio(temPromedio),estado(true)
 {
 }
 

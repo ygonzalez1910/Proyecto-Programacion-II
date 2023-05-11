@@ -23,10 +23,10 @@ public:
 
 protected:
 	
-	/*string cedula;
+	string cedula;
 	string nombre;
 	string telefono;
-	Fecha* nacimiento;*/
+	Fecha* nacimiento;
 	Fecha fecha;
 	char sexo;
 	double estatura;

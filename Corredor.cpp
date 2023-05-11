@@ -3,7 +3,7 @@
 using std::stringstream;
 
 Corredor::Corredor(string cedula, string nombre, string telefono, Fecha* nacimiento, char sexo, double estatura)
-	: Deportista(cedula, nombre, telefono, nacimiento), sexo(sexo), estatura(estatura),estado(estado)
+	: Deportista(cedula, nombre, telefono, nacimiento), sexo(sexo), estatura(estatura),estado(true)
 {
 }
 

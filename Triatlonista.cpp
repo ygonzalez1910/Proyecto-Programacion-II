@@ -56,11 +56,38 @@ void Triatlonista::setNacimiento(int dia, int mes, int ano)
 	ciclista->setNacimiento(dia, mes, ano);
 }
 
-void Triatlonista::setEstado(bool)
+void Triatlonista::setEstado(bool estado)
 {
+	this->estado = estado;
 }
 
 string Triatlonista::getcedula() const
 {
 	return (corredor->getcedula() == ciclista->getcedula()) ? corredor->getcedula() : "No hay cedula valida.";
+}
+
+string Triatlonista::getnombre() const
+{
+	return (corredor->getnombre() == ciclista->getnombre()) ? corredor->getnombre() : "No hay nombre valido.";
+}
+
+string Triatlonista::gettelefono() const
+{
+	return (corredor->gettelefono() == ciclista->gettelefono()) ? corredor->gettelefono() : "No hay telefono valido.";
+}
+
+Fecha* Triatlonista::getnacimiento() const
+{
+	Fecha* fecha = nullptr;
+
+	if ((corredor->getnacimiento() == ciclista->getnacimiento()) && nadador->getnacimiento()) {
+		fecha = corredor->getnacimiento();
+	}
+
+	return fecha;
+}
+
+string Triatlonista::info() const
+{
+	return string();
 }

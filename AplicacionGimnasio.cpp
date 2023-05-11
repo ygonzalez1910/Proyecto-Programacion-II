@@ -2,9 +2,12 @@
 //
 
 #include <iostream>
+#include "Menu.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    Menu* i = new Menu();
+    i->iniciar();
+    delete i;
 }
 

@@ -16,6 +16,7 @@ public:
 private:
 	int opcion;
 	Lista<Triatlonista>* triatlonistas;
+	Lista<Curso>* cursos;
 	Lista<Grupo>* grupos;
 
 };
