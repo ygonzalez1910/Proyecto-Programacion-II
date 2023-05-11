@@ -62,170 +62,180 @@ void Menu::iniciar() {
 		menuPrincipal();
 		cout << "\nDigite una opcion: ";
 		cin >> opcion;
-
+		char continuar = 'S';
 		switch (opcion) {
 		case 1:
 			system("cls");
-			cout << "\n------ INGRESAR CLIENTE ------";
-			cout << "\nDigite el nombre: ";
-			cin >> nombre;
-			cout << "\nDigite la cedula: ";
-			cin >> cedula;
-			cout << "\nDigite el numero de telefono: ";
-			cin >> telefono;
-			cout << "\nDigite la fecha de nacimiento en formato DD/MM/AA: ";
-			cout << "Dia: ";
-			cin >> dia;
-			cout << "Mes: ";
-			cin >> mes;
-			cout << "Anio: ";
-			cin >> anio;
-			fecha = new Fecha(dia, mes, anio);
-			do{
-				cout << "En cuantos triatlones ha participado: ";
-				cin >> triaParticipados;
-				if (triaParticipados > 0) {
-					cout << "Cuantos triatlones ha ganado: ";
-					cin >> triaGanados;
-					if (triaGanados > triaParticipados || triaGanados < 0) {
+			do {
+				cout << "\n------ INGRESAR CLIENTE ------";
+				cout << "\nDigite el nombre: ";
+				cin >> nombre;
+				cout << "\nDigite la cedula: ";
+				cin >> cedula;
+				cout << "\nDigite el numero de telefono: ";
+				cin >> telefono;
+				cout << "\nDigite la fecha de nacimiento en formato DD/MM/AA: ";
+				cout << "Dia: ";
+				cin >> dia;
+				cout << "Mes: ";
+				cin >> mes;
+				cout << "Anio: ";
+				cin >> anio;
+				fecha = new Fecha(dia, mes, anio);
+				do {
+					cout << "En cuantos triatlones ha participado: ";
+					cin >> triaParticipados;
+					if (triaParticipados > 0) {
+						cout << "Cuantos triatlones ha ganado: ";
+						cin >> triaGanados;
+						if (triaGanados > triaParticipados || triaGanados < 0) {
+							cout << "Numero no valido, ingreselo otra vez." << endl;
+						}
+					}
+					else {
 						cout << "Numero no valido, ingreselo otra vez." << endl;
 					}
-				}
-				else {
-				cout << "Numero no valido, ingreselo otra vez." << endl;
-				}
-			} while (triaGanados > triaParticipados && triaGanados > 0);
-			
-			cout << "Ingrese sus horas de entramiento: ";
-			cin >> horasEntrenamiento;
+				} while (triaGanados > triaParticipados && triaGanados > 0);
 
-			cout << "Ingrese su temp promedio: ";
-			cin >> temPromedio;
-			
-			cout << "Indique su sexo: (M/F/X): ";
-			cin >> sexo;
+				cout << "Ingrese sus horas de entramiento: ";
+				cin >> horasEntrenamiento;
 
-			try {
-				cout << "El genero elegido es: " << sexo << endl;
-				if (sexo != 'F' && sexo != 'M' && sexo != 'X') {
-					throw std::invalid_argument("Genero invalido");
-					
-				}
+				cout << "Ingrese su temp promedio: ";
+				cin >> temPromedio;
 
-			}
-			catch (exception& e) {
-				cerr << "Error: " << e.what() << endl;
 				cout << "Indique su sexo: (M/F/X): ";
 				cin >> sexo;
-			}
 
-			if (sexo == 'F' || sexo == 'M' || sexo == 'X') {
-				cout << "El sexo elegido es: " << sexo << endl;
-			}
+				try {
+					cout << "El genero elegido es: " << sexo << endl;
+					if (sexo != 'F' && sexo != 'M' && sexo != 'X') {
+						throw std::invalid_argument("Genero invalido");
 
-			cout << "Introduzca su estatura: ";
-			cin >> estatura;
+					}
 
-			cout << "Introduzca su peso: ";
-			cin >> peso;
+				}
+				catch (exception& e) {
+					cerr << "Error: " << e.what() << endl;
+					cout << "Indique su sexo: (M/F/X): ";
+					cin >> sexo;
+				}
 
-			cout << "Introduzca su masa muscular: ";
-			cin >> masaMuscular;
+				if (sexo == 'F' || sexo == 'M' || sexo == 'X') {
+					cout << "El sexo elegido es: " << sexo << endl;
+				}
 
-			cout << "Introduzca su porcentaje grasa corporal: ";
-			cin >> porcentajeGrasaCorporal;
+				cout << "Introduzca su estatura: ";
+				cin >> estatura;
 
-			estado = true;
+				cout << "Introduzca su peso: ";
+				cin >> peso;
 
-			corredor = new Corredor(cedula, nombre, telefono, fecha, sexo, estatura);
-			nadador = new Nadador(cedula, nombre, telefono, fecha, masaMuscular, peso, porcentajeGrasaCorporal);
-			ciclista = new Ciclista(cedula, nombre, telefono, fecha, horasEntrenamiento, temPromedio);
+				cout << "Introduzca su masa muscular: ";
+				cin >> masaMuscular;
 
-			tria = new Triatlonista(corredor, nadador, ciclista, triaGanados, triaParticipados, estado);
-			triatlonistas->agregar(tria);
+				cout << "Introduzca su porcentaje grasa corporal: ";
+				cin >> porcentajeGrasaCorporal;
 
-			cout << "\nCliente agregado exitosamente.";
+				estado = true;
 
+				corredor = new Corredor(cedula, nombre, telefono, fecha, sexo, estatura);
+				nadador = new Nadador(cedula, nombre, telefono, fecha, masaMuscular, peso, porcentajeGrasaCorporal);
+				ciclista = new Ciclista(cedula, nombre, telefono, fecha, horasEntrenamiento, temPromedio);
+
+				tria = new Triatlonista(corredor, nadador, ciclista, triaGanados, triaParticipados, estado);
+				triatlonistas->agregar(tria);
+
+				cout << "\nCliente agregado exitosamente.";
+				system("pause");
+			} while (continuar == 'S');
 			delete fecha;
 			delete tria;
-
-			system("pause");
 			break;
 
 		case 2:
+
 			system("cls");
-			cout << "\n------ MOSTRAR CLIENTES ------";
-			it = triatlonistas->obtenerIterador();
-			while (it->masElementos()) {
-				tria = it->proximoElemento();
-				cout << "\n" << tria->toString();
-			}
+			do {
+				cout << "\n------ MOSTRAR CLIENTES ------";
+				it = triatlonistas->obtenerIterador();
+				while (it->masElementos()) {
+					tria = it->proximoElemento();
+					cout << "\n" << tria->toString();
+				}
+				system("pause");
+			} while (continuar == 'S');
 			delete it;
-			system("pause");
+		
 			break;
 		case 3:
 			system("cls");
-			cout << "\n------ ACTUALIZAR CLIENTE INFORMACION DE CLIENTE ------";
-			it = triatlonistas->obtenerIterador();
-			while (it->masElementos()) {
-				tria = it->proximoElemento();
-				cout << "\nDigite la cedula del cliente al que desea actualizar sus datos: ";
-				cin >> cedula;
-				///*
-				//*/if (id == tria->getCedula()) {
-				//cout << "\n" << tria->toString();
-				//cout << "\nEstatura:  ";
-				//cin >> estatura;
-				//tria->setEstatura(estatura);
-				// //cout << "\nPeso:  ";
-				//cin >> peso;
-				//tria->setPeso(peso);
-				// //cout << "\nPorcentaje de grasa corporal:  ";
-				//cin >> porcentajeGrasa;
-				//tria->setPorcentajeGrasa(porcentajeGrasa);
-				// //cout << "\nPorcentaje masa muscular:  ";
-				//cin >> porcentajeMasaMuscular;
-				//tria->setPorcentajeMasaMuscular(porcentajeMasaMuscular);
-				//cout << "\nCliente actualizado exitosamente.";
-				//break;
-				//}
-				
-		}
+			do{
+				cout << "\n------ ACTUALIZAR CLIENTE INFORMACION DE CLIENTE ------";
+				it = triatlonistas->obtenerIterador();
+				while (it->masElementos()) {
+					tria = it->proximoElemento();
+					cout << "\nDigite la cedula del cliente al que desea actualizar sus datos: ";
+					cin >> cedula;
+					/////*
+					////*/if (id == tria->getCedula()) {
+					////cout << "\n" << tria->toString();
+					////cout << "\nEstatura:  ";
+					////cin >> estatura;
+					////tria->setEstatura(estatura);
+					//// //cout << "\nPeso:  ";
+					////cin >> peso;
+					////tria->setPeso(peso);
+					//// //cout << "\nPorcentaje de grasa corporal:  ";
+					////cin >> porcentajeGrasa;
+					////tria->setPorcentajeGrasa(porcentajeGrasa);
+					//// //cout << "\nPorcentaje masa muscular:  ";
+					////cin >> porcentajeMasaMuscular;
+					////tria->setPorcentajeMasaMuscular(porcentajeMasaMuscular);
+					////cout << "\nCliente actualizado exitosamente.";
+					////break;
+					////}
+
+				}
+			} while (continuar == 'S');
+			
 			break;
 		delete it;
 		system("pause");
 		break;
 		case 4:
 			system("cls");
-			
-			cout << "Digite el nombre del curso a crear: "; cin >> cc;
-			cout << "Digite el nivel del curso:\n (A: Avanzado. B: Intermedio. C: Principiante.): ";
-			cin >> nivel;
-			cout << "Digite la fecha de inicio del curso: "; cin >> d; cin >> m; cin >> a;
-			fecha = new Fecha(d, m, a);
-			curso = new Curso(cc, nivel, fecha);
-
-			cursos->agregar(curso);
-
-			delete curso;
-
+			do {
+				cout << "Digite el nombre del curso a crear: ";
+				cin >> cc;
+				cout << "Digite el nivel del curso:\n (A: Avanzado. B: Intermedio. C: Principiante.): ";
+				cin >> nivel;
+				cout << "Digite la fecha de inicio del curso: ";
+				cout << "Primero el dia: ";
+				cin >> d;
+				cout << "Ahora el mes: ";
+				cin >> m;
+				cout << "Por ultimo el año: ";
+				cin >> a;
+				fecha = new Fecha(d, m, a);
+				curso = new Curso(cc, nivel, fecha);
+				cursos->agregar(curso);
+			}while(continuar == 'S');
+			delete cursos;
 			//se cierra despues de utilizar este metodo por alguna razón
-
 			system("pause");
 		break;
 		case 5:
 			system("cls");
+			do {
+				cout << "\n------ MOSTRAR CURSOS ------";
+				itc = cursos->obtenerIterador();
+				while (itc->masElementos()) {
+					curso = itc->proximoElemento();
+					cout << "\n" << curso->toString();
+				}
+			} while (continuar == 'S');
 
-			cout << "\n------ MOSTRAR CURSOS ------";
-			itc = cursos->obtenerIterador();
-			while (itc->masElementos()) {
-				curso = itc->proximoElemento();
-				cout << "\n" << curso->toString();
-			}
 			delete itc;
-
-
-
 			system("pause");
 			break;
 		case 6:

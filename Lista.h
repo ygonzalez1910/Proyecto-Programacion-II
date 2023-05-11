@@ -49,6 +49,7 @@ void Lista<T>::agregar(T* dato) {
 	}
 }
 
+
 template <class T>
 IteradorLista<T>* Lista<T>::obtenerIterador() const {
 	return new IteradorLista<T>(primero);
