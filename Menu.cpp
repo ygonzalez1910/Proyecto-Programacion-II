@@ -19,6 +19,7 @@ void Menu::menuPrincipal() {
 	cout << "\n2. Mostrar clientes.";
 	cout << "\n3. Actualizar cliente.";
 	cout << "\n4. Agregar curso.";
+	cout << "\n5. Mostrar cursos.";
 	cout << "\n6. Salir";
 }
 
@@ -66,7 +67,6 @@ void Menu::iniciar() {
 		switch (opcion) {
 		case 1:
 			system("cls");
-			do {
 				cout << "\n------ INGRESAR CLIENTE ------";
 				cout << "\nDigite el nombre: ";
 				cin >> nombre;
@@ -95,7 +95,7 @@ void Menu::iniciar() {
 					else {
 						cout << "Numero no valido, ingreselo otra vez." << endl;
 					}
-				} while (triaGanados > triaParticipados && triaGanados > 0);
+				} while (triaGanados > triaParticipados || triaGanados < 0);
 
 				cout << "Ingrese sus horas de entramiento: ";
 				cin >> horasEntrenamiento;
@@ -145,17 +145,20 @@ void Menu::iniciar() {
 				tria = new Triatlonista(corredor, nadador, ciclista, triaGanados, triaParticipados, estado);
 				triatlonistas->agregar(tria);
 
-				cout << "\nCliente agregado exitosamente.";
+				cout << "\nCliente agregado exitosamente.\n";
 				system("pause");
-			} while (continuar == 'S');
+			
 			delete fecha;
 			delete tria;
+			delete corredor;
+			delete nadador;
+			delete ciclista;
 			break;
 
 		case 2:
 
 			system("cls");
-			do {
+		
 				cout << "\n------ MOSTRAR CLIENTES ------";
 				it = triatlonistas->obtenerIterador();
 				while (it->masElementos()) {
@@ -163,7 +166,7 @@ void Menu::iniciar() {
 					cout << "\n" << tria->toString();
 				}
 				system("pause");
-			} while (continuar == 'S');
+			
 			delete it;
 		
 			break;
@@ -204,7 +207,6 @@ void Menu::iniciar() {
 		break;
 		case 4:
 			system("cls");
-			do {
 				cout << "Digite el nombre del curso a crear: ";
 				cin >> cc;
 				cout << "Digite el nivel del curso:\n (A: Avanzado. B: Intermedio. C: Principiante.): ";
@@ -219,8 +221,7 @@ void Menu::iniciar() {
 				fecha = new Fecha(d, m, a);
 				curso = new Curso(cc, nivel, fecha);
 				cursos->agregar(curso);
-			}while(continuar == 'S');
-			delete cursos;
+			delete curso;
 			//se cierra despues de utilizar este metodo por alguna razón
 			system("pause");
 		break;

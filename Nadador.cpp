@@ -5,7 +5,7 @@ Nadador::Nadador(string cedula, string nombre, string telefono, Fecha* nacimient
 	, double masaMuscular, double peso, double porcentajeGrasaCorporal)
 	:Deportista(cedula, nombre, telefono, nacimiento),
 	masaMuscular(masaMuscular), peso(peso),
-	porcentajeGrasaCorporal(porcentajeGrasaCorporal),estado(estado) {
+	porcentajeGrasaCorporal(porcentajeGrasaCorporal),estado(true), nacimiento(nacimiento) {
 }
 
 Nadador::~Nadador()
