@@ -4,7 +4,7 @@
 Triatlonista::Triatlonista(Corredor* corredor, Nadador* nadador, Ciclista* ciclista, 
 int triaGanados, int triaParticipados, bool estado)
 	: corredor(corredor), nadador(nadador),ciclista(ciclista),
-	triaGanados(triaGanados), triaParticipados(triaParticipados),estado(estado),pago(false){
+	triaGanados(triaGanados), triaParticipados(triaParticipados),estado(estado),pago(false),datos(nullptr) {
 
 }
 
@@ -18,13 +18,12 @@ Triatlonista::~Triatlonista()
 string Triatlonista::toString() const
 {
 	stringstream r;
-	
-	r << corredor->toString() << endl;
-	r << ciclista->toString() << endl;
-	r << nadador->toString() << endl;
-	r << "Triatlones ganados: " << triaGanados << endl;
-	r << "Triatlones participados: " << triaParticipados << endl;
-
+	r << "Prueba" << "\n";
+	r << corredor->toString() << "\n";
+	r << ciclista->toString() << "\n";
+	r << nadador->toString() << "\n";
+	r << "Triatlones ganados: " << triaGanados << "\n";
+	r << "Triatlones participados: " << triaParticipados << "\n";
 	return r.str();
 }
 
@@ -61,6 +60,7 @@ void Triatlonista::setEstado(bool estado)
 	this->estado = estado;
 }
 
+
 string Triatlonista::getcedula() const
 {
 	return (corredor->getcedula() == ciclista->getcedula()) ? corredor->getcedula() : "No hay cedula valida.";
@@ -91,3 +91,34 @@ string Triatlonista::info() const
 {
 	return string();
 }
+
+double Triatlonista::getEstatura() const
+{
+	double estatura = datos->getEstatura();
+	return estatura;
+}
+
+double Triatlonista::getPeso() const
+{
+	double peso = datos->getPeso();
+	return peso;
+}
+
+double Triatlonista::getPorcentajeGrasaCorporal() const
+{
+	double porcentajeGrasaCorporal = datos->getPorcentajeGrasaCorporal();
+	return porcentajeGrasaCorporal;
+}
+
+double Triatlonista::getPorcentajeMasaMuscular() const
+{
+	double porcentajeMasaMuscular = datos->getPorcentajeMasaMuscular();
+	return porcentajeMasaMuscular;
+}
+
+void Triatlonista::setDatosBiometricos(double estatura, double peso,double porcentajeGrasaCorporal,double porcentajeMasaMuscular)
+{
+	datos = new DatosBiometricos(estatura, peso, porcentajeGrasaCorporal, porcentajeMasaMuscular);
+}
+
+

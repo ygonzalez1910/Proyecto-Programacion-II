@@ -1,5 +1,6 @@
 #pragma once
 #include "Fecha.h"
+#include "DatosBiometricos.h"
 #include "ObjetoBase.h"
 #include <iostream>
 using namespace std;
@@ -26,6 +27,7 @@ protected:
 	string nombre;
 	string telefono;
 	Fecha* nacimiento;
+	DatosBiometricos* datos;
 };
 
 /*public:

@@ -24,37 +24,39 @@ void Menu::menuPrincipal() {
 }
 
 void Menu::iniciar() {
-	
+
 	//aqui no se declaran listas porque ya las tiene la clase inicializadas
 
 	//depor
 	string nombre, cedula, telefono;
 	int dia = 0, mes = 0, anio = 0;
-	Fecha* fecha ;
+	Fecha* fecha = new Fecha(dia,mes,anio);
 	//tria
-	bool estado;
+	bool estado = true;
 	int triaGanados = 0;
 	int triaParticipados = 0;
-	
-	Corredor* corredor; 
-	Ciclista* ciclista;
-	Nadador* nadador;
-	//ci
-	int horasEntrenamiento = 0;
-	double temPromedio = 0.0;
-	//na
-	double masaMuscular = 0.0;
-	double peso = 0.0;
-	double porcentajeGrasaCorporal = 0.0;
-	//co
-	char sexo;
+	char sexo = ' ';
 	double estatura = 0.0;
 	char nivel = ' ';
 	string cc = " ";
 	int d = 0, m = 0, a = 0;
+	Corredor* corredor = new Corredor(cedula,nombre,telefono,fecha,sexo,estatura);
+	//ci
+	int horasEntrenamiento = 0;
+	double temPromedio = 0.0;
+	Ciclista* ciclista = new Ciclista(cedula,nombre,telefono,fecha,horasEntrenamiento,temPromedio);
+	double masaMuscular = 0.0;
+	double peso = 0.0;
+	double porcentajeGrasaCorporal = 0.0;
+	Nadador* nadador = new Nadador(cedula,nombre,telefono,fecha,masaMuscular,peso,porcentajeGrasaCorporal);
+	
+	//na
+	
+	//co
+	
 
-	Triatlonista* tria;
-	Curso* curso;
+	Triatlonista* tria = new Triatlonista(corredor,nadador,ciclista,triaGanados,triaParticipados,estado);
+	Curso* curso ;
 	IteradorLista<Triatlonista>* it;
 	IteradorLista<Curso>* itc;
 
@@ -110,9 +112,7 @@ void Menu::iniciar() {
 					cout << "El genero elegido es: " << sexo << endl;
 					if (sexo != 'F' && sexo != 'M' && sexo != 'X') {
 						throw std::invalid_argument("Genero invalido");
-
 					}
-
 				}
 				catch (exception& e) {
 					cerr << "Error: " << e.what() << endl;
@@ -144,21 +144,15 @@ void Menu::iniciar() {
 
 				tria = new Triatlonista(corredor, nadador, ciclista, triaGanados, triaParticipados, estado);
 				triatlonistas->agregar(tria);
-
 				cout << "\nCliente agregado exitosamente.\n";
 				system("pause");
-			
-			delete fecha;
-			delete tria;
-			delete corredor;
-			delete nadador;
-			delete ciclista;
+		
 			break;
 
 		case 2:
 
 			system("cls");
-		
+			do {
 				cout << "\n------ MOSTRAR CLIENTES ------";
 				it = triatlonistas->obtenerIterador();
 				while (it->masElementos()) {
@@ -166,7 +160,7 @@ void Menu::iniciar() {
 					cout << "\n" << tria->toString();
 				}
 				system("pause");
-			
+			} while (continuar == 'S');
 			delete it;
 		
 			break;
@@ -179,24 +173,20 @@ void Menu::iniciar() {
 					tria = it->proximoElemento();
 					cout << "\nDigite la cedula del cliente al que desea actualizar sus datos: ";
 					cin >> cedula;
-					/////*
-					////*/if (id == tria->getCedula()) {
-					////cout << "\n" << tria->toString();
-					////cout << "\nEstatura:  ";
-					////cin >> estatura;
-					////tria->setEstatura(estatura);
-					//// //cout << "\nPeso:  ";
-					////cin >> peso;
-					////tria->setPeso(peso);
-					//// //cout << "\nPorcentaje de grasa corporal:  ";
-					////cin >> porcentajeGrasa;
-					////tria->setPorcentajeGrasa(porcentajeGrasa);
-					//// //cout << "\nPorcentaje masa muscular:  ";
-					////cin >> porcentajeMasaMuscular;
-					////tria->setPorcentajeMasaMuscular(porcentajeMasaMuscular);
-					////cout << "\nCliente actualizado exitosamente.";
-					////break;
-					////}
+					if (cedula == tria->getcedula()) {
+					cout << "\n" << tria->toString();
+					cout << "\nEstatura: ";
+					cin >> estatura;
+					cout << "\nPeso:  ";
+					cin >> peso;
+					cout << "Porcentaje de grasa corporal: " << endl;
+					cin >> porcentajeGrasaCorporal;
+					cout << "Porcentaje de masa muscular: " << endl;
+					cin >> masaMuscular;
+					tria->setDatosBiometricos(estatura,peso,porcentajeGrasaCorporal,masaMuscular);
+					cout << "\nCliente actualizado exitosamente.";
+					break;
+					}
 
 				}
 			} while (continuar == 'S');

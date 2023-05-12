@@ -19,3 +19,23 @@ string DatosBiometricos::toString() const
 	r << "Porcentaje Masa Muscular: " << porcentajeMasaMuscular << endl;
 	return r.str();
 }
+
+double DatosBiometricos::getEstatura() const
+{
+	return estatura;
+}
+
+double DatosBiometricos::getPeso() const
+{
+	return peso;
+}
+
+double DatosBiometricos::getPorcentajeGrasaCorporal() const
+{
+	return porcentajeGrasaCorporal;
+}
+
+double DatosBiometricos::getPorcentajeMasaMuscular() const
+{
+	return porcentajeMasaMuscular;
+}
