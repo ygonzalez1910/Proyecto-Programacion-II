@@ -145,12 +145,16 @@ void Menu::iniciar() {
 				tria = new Triatlonista(corredor, nadador, ciclista, triaGanados, triaParticipados, estado);
 				triatlonistas->agregar(tria);
 
-				cout << "\nCliente agregado exitosamente.";
-				break;
-			} while (continuar == 'S');
+				cout << "\nCliente agregado exitosamente.\n";
+				system("pause");
+			
 			delete fecha;
 			delete tria;
-			system("pause");
+			delete corredor;
+			delete nadador;
+			delete ciclista;
+			break;
+
 		case 2:
 
 			system("cls");
@@ -162,11 +166,10 @@ void Menu::iniciar() {
 					cout << "\n" << tria->toString();
 				}
 				system("pause");
-				break;
-			} while (continuar == 'S');
+			
 			delete it;
 		
-			
+			break;
 		case 3:
 			system("cls");
 			do{
@@ -213,13 +216,13 @@ void Menu::iniciar() {
 				cin >> d;
 				cout << "Ahora el mes: ";
 				cin >> m;
-				cout << "Por ultimo el aï¿½o: ";
+				cout << "Por ultimo el año: ";
 				cin >> a;
 				fecha = new Fecha(d, m, a);
 				curso = new Curso(cc, nivel, fecha);
 				cursos->agregar(curso);
 			delete curso;
-			//se cierra despues de utilizar este metodo por alguna razï¿½n
+			//se cierra despues de utilizar este metodo por alguna razón
 			system("pause");
 		break;
 		case 5:
