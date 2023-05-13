@@ -18,6 +18,7 @@ private:
 	Lista<Triatlonista>* triatlonistas;
 	Lista<Curso>* cursos;
 	Lista<Grupo>* grupos;
+	Lista<Fecha>* fechas;
 
 };
 

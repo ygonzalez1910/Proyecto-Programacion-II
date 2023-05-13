@@ -19,14 +19,3 @@ void Gimnasio::registroControlPagos(string cedula, Pagos* pago, Fecha* fecha)
 //	pagos->agregar(p);
 //}
 
-void Gimnasio::registroYActualizacionCursos(Curso*)
-{
-}
-
-void Gimnasio::manejoReservaciones(Curso*)
-{
-}
-
-void Gimnasio::actualizacionInformacionBasica(Triatlonista*, DatosBiometricos)
-{
-}
