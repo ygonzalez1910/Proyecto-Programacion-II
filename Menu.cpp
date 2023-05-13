@@ -233,6 +233,12 @@ void Menu::iniciar() {
 					curso = itc->proximoElemento();
 					cout << "\n" << curso->toString();
 				}
+				cout << "Digite el numero de curso en que desea matricular: " << endl;
+				cin >> numeroCurso;
+				cout << "Digite su cedula para reservar su espacio en un curso: " << endl;
+				cin >> cedula;
+				curso->hacerReservacion(numeroCurso, cedula);
+				cout << "Reservacion realizada exitosamente..." << endl;;
 			} while (continuar == 'S');
 
 			delete itc;

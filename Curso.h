@@ -5,10 +5,10 @@
 class Curso
 {
 public:
-	Curso(string, int,char, Fecha*,int,int);
+	Curso(string, int, char, Fecha*, int, int);
 	virtual ~Curso();
 	bool lleno();
-	virtual void hacerReservacion(Triatlonista*);
+	virtual void hacerReservacion(int,string);
 	virtual void cancelacionReservacion(int,string);
 	virtual void agregarGrupo(Grupo*);
 	virtual string toString() const;
@@ -27,6 +27,7 @@ private:
 	int numero;
 	int capacidad;
 	int cantidadMatriculados;
+	Triatlonista* tria;
 	Fecha* fechaCurso;
 	Grupo* g;
 	Lista<Triatlonista>* reservaciones;

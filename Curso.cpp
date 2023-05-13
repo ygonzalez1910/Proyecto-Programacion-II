@@ -6,7 +6,7 @@ const int Curso::MAX;
 
 Curso::Curso(string descripcionCurso, int numero, char nivel, Fecha* fechaCurso, int capacidad, int cantidadMatriculados)
 	:descripcionCurso(descripcionCurso), numero(numero), nivel(nivel), fechaCurso(fechaCurso), capacidad(capacidad),
-	cantidadMatriculados(cantidadMatriculados),g(nullptr)
+	cantidadMatriculados(cantidadMatriculados),g(nullptr),tria(nullptr)
 	,grupos(new Lista<Grupo>()),reservaciones(new Lista<Triatlonista>()), cantidad(0)
 {
 }
@@ -20,16 +20,18 @@ bool Curso::lleno()
 	return g->getCantidadMatriculados() == MAX;
 }
 
-void Curso::hacerReservacion(Triatlonista* triatlonista)
+void Curso::hacerReservacion(int numeroCurso,string cedula)
 {
 	//hacer la funcion que reciba el numero de curso en que se quiere inscribir
 	//primero se muestran los cursos y al final poner en esa misma opcion que eliga que curso con el numero
 	//y despues agregarla a la lista de reservaciones para poder despues mostrarrla
 	string mensaje = "El grupo ya se encuentra lleno...";
-
+	
 	if (!lleno()) {
-		reservaciones->agregar(triatlonista);
-		g->incrementarCantidadMatriculados();
+		if (cedula == tria->getcedula()) {
+			reservaciones->agregar(tria);
+			g->incrementarCantidadMatriculados();
+		}
 	}
 	else {
 		throw mensaje;
