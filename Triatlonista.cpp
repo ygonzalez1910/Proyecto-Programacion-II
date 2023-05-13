@@ -30,7 +30,9 @@ string Triatlonista::toString() const
 
 void Triatlonista::setCedula(string cedula)
 {
-	corredor->setCedula(cedula),nadador->setCedula(cedula),ciclista->setCedula(cedula);
+	corredor->setCedula(cedula);
+	nadador->setCedula(cedula);
+	ciclista->setCedula(cedula);
 }
 
 void Triatlonista::setNombre(string nombre)
@@ -62,12 +64,7 @@ void Triatlonista::setEstado(bool estado)
 
 string Triatlonista::getcedula() const
 {
-	return corredor->getcedula(),nadador->getcedula(),ciclista->getcedula();
-}
-
-string Triatlonista::getCedula() const
-{
-	return cedula;
+	return (corredor->getcedula() == ciclista->getcedula()) ? corredor->getcedula() : "No hay cedula valida.";
 }
 
 string Triatlonista::getnombre() const

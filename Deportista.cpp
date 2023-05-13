@@ -3,7 +3,7 @@
 using std::stringstream;
 
 Deportista::Deportista(string cedula, string nombre, string telefono, Fecha* nacimiento)
-	:cedula(cedula),nombre(nombre),telefono(telefono),nacimiento(nacimiento),datos(nullptr)
+	:cedula(cedula),nombre(nombre),telefono(telefono),nacimiento(nacimiento)
 {
 }
 

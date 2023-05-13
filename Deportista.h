@@ -10,7 +10,7 @@ class Deportista : public ObjetoBase
 public:
 	Deportista(string, string, string, Fecha*);
 	virtual string toString() const;
-	virtual string getCedula() const = 0;
+	virtual string getcedula() const = 0;
 	virtual string getnombre() const = 0;
 	virtual string gettelefono() const = 0;
 	virtual Fecha* getnacimiento() const = 0;

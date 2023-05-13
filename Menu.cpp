@@ -72,7 +72,6 @@ void Menu::iniciar() {
 			cin >> nombre;
 			cout << "\nDigite la cedula: ";
 			cin >> cedula;
-			tria->setCedula(cedula);
 			cout << "\nDigite el numero de telefono: ";
 			cin >> telefono;
 			cout << "\nDigite la fecha de nacimiento en formato DD/MM/AA: ";
@@ -138,9 +137,8 @@ void Menu::iniciar() {
 
 			estado = true;
 
-			
-			//no esta guardando la cedula en ningun lado
-			
+			tria->setNombre(nombre);
+			tria->setCedula(cedula);
 			tria->setNacimiento(dia, mes, anio);
 			tria->setTelefono(telefono);
 
@@ -179,7 +177,7 @@ void Menu::iniciar() {
 					tria = it->proximoElemento();
 					cout << "\nDigite la cedula del cliente al que desea actualizar sus datos: ";
 					cin >> cedula;
-					if (cedula == tria->getCedula()) {
+					if (cedula == tria->getcedula()) {
 						cout << "\n" << tria->toString();
 						cout << "\nEstatura: ";
 						cin >> estatura;
