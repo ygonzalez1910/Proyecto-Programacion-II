@@ -3,7 +3,7 @@
 
 Triatlonista::Triatlonista(Corredor* corredor, Nadador* nadador, Ciclista* ciclista, 
 int triaGanados, int triaParticipados, bool estado)
-	: corredor(corredor), nadador(nadador),ciclista(ciclista),
+	: corredor(corredor), nadador(nadador), ciclista(ciclista),
 	triaGanados(triaGanados), triaParticipados(triaParticipados),estado(estado),pago(false),datos(nullptr) {
 
 }
@@ -18,10 +18,11 @@ Triatlonista::~Triatlonista()
 string Triatlonista::toString() const
 {
 	stringstream r;
-	r << "Prueba" << "\n";
+	
 	r << corredor->toString() << "\n";
 	r << ciclista->toString() << "\n";
 	r << nadador->toString() << "\n";
+	r << "Datos como triatlonista: " << endl;
 	r << "Triatlones ganados: " << triaGanados << "\n";
 	r << "Triatlones participados: " << triaParticipados << "\n";
 	return r.str();

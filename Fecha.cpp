@@ -14,9 +14,7 @@ Fecha::~Fecha()
 
 string Fecha::toString() {
     stringstream r;
-    r << "Dia: " << dia << endl;
-    r << "Mes: " << mes << endl;
-    r << "Anio: " << anio << endl;
+    r << dia << " / " << mes << " / " << anio << endl;
     return r.str();
 }
 

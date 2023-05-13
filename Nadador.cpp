@@ -76,7 +76,8 @@ string Nadador::toString()
 {
 	stringstream r;
 	
-	r << info();
+	//r << info();
+	r << "Datos como nadador: " << endl;
 	r << "Masa muscular: " << masaMuscular << endl;
 	r << "Peso: " << peso << endl;
 	r << "Porcentaje de grasa corporal: " << porcentajeGrasaCorporal << endl;

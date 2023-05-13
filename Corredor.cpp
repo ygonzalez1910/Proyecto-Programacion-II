@@ -15,11 +15,12 @@ string Corredor::toString() const
 {
 	stringstream r;
 
-	r << info();
-	r << "Nombre: " << nombre << endl;
-	r << "Cedula: " << cedula << endl;
-	r << "Telefono: " << telefono << endl;
+
+	r << "Nombre: " << Deportista::nombre << endl;
+	r << "Cedula: " << Deportista::cedula << endl;
+	r << "Telefono: " << Deportista::telefono << endl;
 	r << "Nacimiento: " << nacimiento->toString() << endl;
+	r << "Datos como corredor: " << endl <<  info();
 
 	return r.str();
 }

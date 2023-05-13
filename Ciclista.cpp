@@ -44,23 +44,24 @@ string Ciclista::info() const
 	return r.str();
 }
 
-void Ciclista::setCedula(string cedula)
+void Ciclista::setCedula(string c)
 {
-	this-> cedula = cedula;
+	this-> cedula = c;
 }
 
-void Ciclista::setNombre(string nombre)
+void Ciclista::setNombre(string n)
 {
-	this->nombre = nombre;
+	this->nombre = n;
 }
 
-void Ciclista::setTelefono(string telefono)
+void Ciclista::setTelefono(string t)
 {
-	this->telefono = telefono;
+	this->telefono = t;
 }
 
-void Ciclista::setNacimiento(int, int, int)
+void Ciclista::setNacimiento(int dia, int mes, int anio)
 {
+	this->nacimiento = new Fecha(dia, mes, anio);
 }
 
 void Ciclista::setEstado(char estado)
@@ -72,8 +73,8 @@ void Ciclista::setEstado(char estado)
 string Ciclista::toString() const
 {
 	stringstream r;
-	r << info();
-	r << "Horas de entrenamiento: " << horasEntrenamiento << endl;
-	r << "Tempo promedio: " << temPromedio << endl;
+
+	r << "Datos como ciclista: " << endl << info();
+
 	return r.str();
 }

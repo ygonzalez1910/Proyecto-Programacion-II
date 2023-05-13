@@ -25,13 +25,14 @@ void Menu::menuPrincipal() {
 
 void Menu::iniciar() {
 
-	//aqui no se declaran listas porque ya las tiene la clase inicializadas
+	string nombre = " ";
+	string nombreCurso = " ";
+	string cedula = " ";
+	string telefono = " ";
 
-	//depor
-	string nombre, cedula, telefono;
 	int dia = 0, mes = 0, anio = 0;
 	Fecha* fecha = new Fecha(dia,mes,anio);
-	//tria
+	
 	bool estado = true;
 	int triaGanados = 0;
 	int triaParticipados = 0;
@@ -40,23 +41,21 @@ void Menu::iniciar() {
 	char nivel = ' ';
 	string cc = " ";
 	int d = 0, m = 0, a = 0;
+
 	Corredor* corredor = new Corredor(cedula,nombre,telefono,fecha,sexo,estatura);
-	//ci
 	int horasEntrenamiento = 0;
 	double temPromedio = 0.0;
+
 	Ciclista* ciclista = new Ciclista(cedula,nombre,telefono,fecha,horasEntrenamiento,temPromedio);
 	double masaMuscular = 0.0;
 	double peso = 0.0;
 	double porcentajeGrasaCorporal = 0.0;
+
 	Nadador* nadador = new Nadador(cedula,nombre,telefono,fecha,masaMuscular,peso,porcentajeGrasaCorporal);
-	
-	//na
-	
-	//co
-	
 
 	Triatlonista* tria = new Triatlonista(corredor,nadador,ciclista,triaGanados,triaParticipados,estado);
-	Curso* curso ;
+	Curso* curso = new Curso(nombreCurso, nivel, fecha);
+
 	IteradorLista<Triatlonista>* it;
 	IteradorLista<Curso>* itc;
 
@@ -65,7 +64,6 @@ void Menu::iniciar() {
 		menuPrincipal();
 		cout << "\nDigite una opcion: ";
 		cin >> opcion;
-		char continuar = 'S';
 		switch (opcion) {
 		case 1:
 			system("cls");
@@ -107,21 +105,21 @@ void Menu::iniciar() {
 
 				cout << "Indique su sexo: (M/F/X): ";
 				cin >> sexo;
-
-				try {
-					cout << "El genero elegido es: " << sexo << endl;
-					if (sexo != 'F' && sexo != 'M' && sexo != 'X') {
-						throw std::invalid_argument("Genero invalido");
+				
+				while (true) {
+					try {
+						if (sexo != 'F' && sexo != 'M' && sexo != 'X') {
+							throw invalid_argument("Genero invalido");
+						}
+						cout << "El genero elegido es: " << sexo << endl;
+						break;
 					}
-				}
-				catch (exception& e) {
-					cerr << "Error: " << e.what() << endl;
-					cout << "Indique su sexo: (M/F/X): ";
-					cin >> sexo;
-				}
-
-				if (sexo == 'F' || sexo == 'M' || sexo == 'X') {
-					cout << "El sexo elegido es: " << sexo << endl;
+					catch (exception& e) {
+						
+						cerr << "Error: " << e.what() << endl;
+						cout << "Indique su sexo: (M/F/X): ";
+						cin >> sexo;
+					}
 				}
 
 				cout << "Introduzca su estatura: ";
@@ -144,35 +142,35 @@ void Menu::iniciar() {
 
 				tria = new Triatlonista(corredor, nadador, ciclista, triaGanados, triaParticipados, estado);
 				triatlonistas->agregar(tria);
-				cout << "\nCliente agregado exitosamente.\n";
+				cout << "\nCliente agregado exitosamente.\n\n";
+
 				system("pause");
 		
 			break;
 
 		case 2:
+		system("cls");
 
-			system("cls");
-			do {
-				cout << "\n------ MOSTRAR CLIENTES ------";
-				it = triatlonistas->obtenerIterador();
-				while (it->masElementos()) {
-					tria = it->proximoElemento();
-					cout << "\n" << tria->toString();
-				}
-				system("pause");
-			} while (continuar == 'S');
+			cout << "\n------ MOSTRAR CLIENTES ------";
+			it = triatlonistas->obtenerIterador();
+			while (it->masElementos()) {
+				tria = it->proximoElemento();
+				cout << "\n" << tria->toString();
+			}
+			system("pause");
 			delete it;
-		
+	
 			break;
 		case 3:
 			system("cls");
-			do{
+
 				cout << "\n------ ACTUALIZAR CLIENTE INFORMACION DE CLIENTE ------";
+				cout << "\nDigite la cedula del cliente al que desea actualizar sus datos: ";
+				cin >> cedula;
 				it = triatlonistas->obtenerIterador();
 				while (it->masElementos()) {
 					tria = it->proximoElemento();
-					cout << "\nDigite la cedula del cliente al que desea actualizar sus datos: ";
-					cin >> cedula;
+			
 					if (cedula == tria->getcedula()) {
 					cout << "\n" << tria->toString();
 					cout << "\nEstatura: ";
@@ -185,11 +183,9 @@ void Menu::iniciar() {
 					cin >> masaMuscular;
 					tria->setDatosBiometricos(estatura,peso,porcentajeGrasaCorporal,masaMuscular);
 					cout << "\nCliente actualizado exitosamente.";
-					break;
 					}
 
 				}
-			} while (continuar == 'S');
 			
 			break;
 		delete it;
@@ -197,36 +193,37 @@ void Menu::iniciar() {
 		break;
 		case 4:
 			system("cls");
+
 				cout << "Digite el nombre del curso a crear: ";
 				cin >> cc;
 				cout << "Digite el nivel del curso:\n (A: Avanzado. B: Intermedio. C: Principiante.): ";
 				cin >> nivel;
-				cout << "Digite la fecha de inicio del curso: ";
-				cout << "Primero el dia: ";
+				cout << "Digite la fecha de inicio del curso: " << endl;
+				cout << "El dia: ";
 				cin >> d;
-				cout << "Ahora el mes: ";
+				cout << "Mes: ";
 				cin >> m;
-				cout << "Por ultimo el año: ";
+				cout << "Anio: ";
 				cin >> a;
+
 				fecha = new Fecha(d, m, a);
 				curso = new Curso(cc, nivel, fecha);
 				cursos->agregar(curso);
-			delete curso;
-			//se cierra despues de utilizar este metodo por alguna razón
-			system("pause");
+			
+				cout << "El curso se ha creado exitosamente." << endl;
+
+				cin.ignore();
 		break;
 		case 5:
 			system("cls");
-			do {
+
 				cout << "\n------ MOSTRAR CURSOS ------";
 				itc = cursos->obtenerIterador();
 				while (itc->masElementos()) {
 					curso = itc->proximoElemento();
 					cout << "\n" << curso->toString();
 				}
-			} while (continuar == 'S');
 
-			delete itc;
 			system("pause");
 			break;
 		case 6:

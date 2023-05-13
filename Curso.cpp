@@ -5,8 +5,8 @@ using std::stringstream;
 const int Curso::MAX;
 
 Curso::Curso(string descripcionCurso, char nivel, Fecha* fechaCurso)
-	:cantidad(0),descripcionCurso(descripcionCurso),nivel(nivel),fechaCurso(fechaCurso),g(nullptr)
-	,grupos(new Lista<Grupo>()),reservaciones(new Lista<Triatlonista>())
+	:descripcionCurso(descripcionCurso),nivel(nivel),fechaCurso(fechaCurso),g(nullptr)
+	,grupos(new Lista<Grupo>()),reservaciones(new Lista<Triatlonista>()), cantidad(0)
 
 {
 }
