@@ -17,7 +17,10 @@ public:
 	virtual void setNacimiento(int, int, int);
 	virtual void setEstado(bool);
 
-	virtual string getcedula() const;
+	/*virtual void setCedulaOficial(string);
+	virtual string getCedulaOficial();*/
+
+	virtual string getCedula() const;
 	virtual string getnombre() const;
 	virtual string gettelefono() const;
 	virtual Fecha* getnacimiento() const;
