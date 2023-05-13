@@ -64,7 +64,7 @@ void Triatlonista::setEstado(bool estado)
 
 string Triatlonista::getcedula() const
 {
-	return (corredor->getcedula() == ciclista->getcedula()) ? corredor->getcedula() : "No hay cedula valida.";
+	return corredor->getcedula(), ciclista->getcedula(), nadador->getcedula();
 }
 
 string Triatlonista::getnombre() const
