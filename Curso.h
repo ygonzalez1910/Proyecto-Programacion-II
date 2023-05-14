@@ -12,10 +12,11 @@ public:
 	virtual void cancelacionReservacion(string);
 	
 	virtual string toString() const;
-	virtual string toStringReservaciones();
+	//virtual string toStringReservaciones();
 
 	virtual Fecha* getFecha() const;
-
+	
+	virtual void setCantidadMatriculados(int);
 	
 	int getCantidadMatriculados();
 	int getNumero();

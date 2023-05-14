@@ -58,7 +58,7 @@ void Menu::iniciar() {
 	Curso* curso = new Curso(cc, numeroCurso, nivel, fecha,capacidad);
 	IteradorLista<Triatlonista>* it;
 	IteradorLista<Curso>* itc;
-	
+	tria->procesarArchivos();
 	do {
 		system("cls");
 		menuPrincipal();
@@ -357,6 +357,8 @@ void Menu::iniciar() {
 							else {
 								curso->hacerReservacion(cedula);
 								cout << "Reservacion realizada exitosamente..." << endl;
+								cantidadMatriculados++;
+								curso->setCantidadMatriculados(cantidadMatriculados);
 							}
 						}
 					}

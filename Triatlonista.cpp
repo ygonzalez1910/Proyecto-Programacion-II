@@ -189,14 +189,13 @@ void Triatlonista::procesarArchivos()
 				if (descripcion == "Triatlonista") {
 					nadador = new Nadador(valor3_3,valor3_3,valor3_3,valor1_1,valor2_2,valor2_2,valor2_2);
 				}
-				/*else if (descripcion == "rectangulo") {
-					f = new Rectangulo(valor1_1, valor2_2);
+				else if (descripcion == "Triatlonista") {
+					nadador = new Nadador(valor3_3, valor3_3, valor3_3, valor1_1, valor2_2, valor2_2, valor2_2);
 				}
 				else {
-					string noTipo = "no es figura";
+					string noTipo = "No es triatlonista";
 					throw noTipo;
 				}
-				cout << "Area: " << f->calcularArea() << "\n";*/
 			}
 			catch (int errorInt) {
 				errores << "error int: " << errorInt << "\n";

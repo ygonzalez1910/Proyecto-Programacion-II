@@ -7,7 +7,7 @@ const int Curso::MAX;
 Curso::Curso(string descripcionCurso, int numero, char nivel, Fecha* fechaCurso, int capacidad)
 	:descripcionCurso(descripcionCurso), numero(numero), nivel(nivel), fechaCurso(fechaCurso)
 	, capacidad(capacidad), tria(nullptr), cantidadMatriculados(0)
-	,reservaciones(new Lista<Triatlonista>()), cantidad(0)
+	,reservaciones(new Lista<Triatlonista>()),cantidad(0)
 {
 }
 
@@ -84,19 +84,20 @@ string Curso::toString() const
 	//r << "Reservaciones realizadas: " << reservaciones << "\n";
 	return r.str();
 }
-
-string Curso::toStringReservaciones()
-{
-	stringstream r;
-	//iterador de lista reservaciones
-	IteradorLista<Triatlonista>* itr;
-	r << "Descripcion del curso: " << descripcionCurso << "\n";
-	itr = reservaciones->obtenerIterador();
-	while (itr->masElementos()) {
-		reservaciones = itr->proximoElemento();
-		r << "\nReservaciones realizadas: " << reservaciones;
-	}
-}
+//
+//string Curso::toStringReservaciones()
+//{
+//	stringstream r;
+//	//iterador de lista reservaciones
+//	IteradorLista<Triatlonista>* itr;
+//	r << "Descripcion del curso: " << descripcionCurso << "\n";
+//	itr = reservaciones->obtenerIterador();
+//	while (itr->masElementos()) {
+//		reservaciones = itr->proximoElemento();
+//		r << "\nReservaciones realizadas: " << reservaciones;
+//	}
+//	return r.str();
+//}
 
 Fecha* Curso::getFecha() const
 {
