@@ -17,6 +17,7 @@ public:
 	Lista();
 	virtual ~Lista();
 	virtual void agregar(T*);
+	virtual void eliminar(T*);
 	virtual IteradorLista<T>* obtenerIterador() const;
 
 private:
@@ -47,6 +48,11 @@ void Lista<T>::agregar(T* dato) {
 		}
 		actual->setSiguiente(new Nodo<T>(dato, NULL));
 	}
+}
+
+template <class T>
+void Lista<T>::eliminar(T* dato) {
+	this->actual = NULL;
 }
 
 

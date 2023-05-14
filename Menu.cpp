@@ -20,6 +20,7 @@ void Menu::menuPrincipal() {
 	cout << "\n3. Actualizar cliente.";
 	cout << "\n4. Agregar curso.";
 	cout << "\n5. Mostrar cursos.";
+	cout << "\n6. Inscribirse a curso.";
 	cout << "\n0. Salir";
 }
 
@@ -54,7 +55,7 @@ void Menu::iniciar() {
 
 	Triatlonista* tria = new Triatlonista(corredor, nadador, ciclista, triaGanados, triaParticipados, estado);
 	Triatlonista* aux = new Triatlonista(corredor, nadador, ciclista, triaGanados, triaParticipados, estado);
-	Curso* curso = new Curso(cc, numeroCurso, nivel, fecha,capacidad,cantidadMatriculados);
+	Curso* curso = new Curso(cc, numeroCurso, nivel, fecha,capacidad);
 	IteradorLista<Triatlonista>* it;
 	IteradorLista<Curso>* itc;
 	
@@ -274,8 +275,6 @@ void Menu::iniciar() {
 			else {
 				cout << "No hay clientes para actualizar. \n";
 			}
-
-			
 			delete it;
 			system("pause");
 			break;
@@ -296,33 +295,84 @@ void Menu::iniciar() {
 			cin >> a;
 			cout << "Digite la capacidad del curso: ";
 			cin >> capacidad;
-			cout << "Digite cantidad de matriculados: ";
-			cin >> cantidadMatriculados;
+
 				fecha = new Fecha(d, m, a);
-				curso = new Curso(cc,numeroCurso, nivel, fecha,capacidad,cantidadMatriculados);
+				curso = new Curso(cc,numeroCurso, nivel, fecha,capacidad);
 				fechas->agregar(fecha);
 				cursos->agregar(curso);
+
 				cout << "\nCurso agregado exitosamente..." << endl;
 			system("pause");
 			break;
 		case 5:
 			system("cls");
-			do {
+
 				cout << "\n------ MOSTRAR CURSOS ------";
 				itc = cursos->obtenerIterador();
 				while (itc->masElementos()) {
 					curso = itc->proximoElemento();
 					cout << "\n" << curso->toString();
 				}
-				cout << "Digite el numero de curso en que desea matricular: " << endl;
-				cin >> numeroCurso;
-				cout << "Digite su cedula para reservar su espacio en un curso: " << endl;
-				cin >> cedula;
-				curso->hacerReservacion(numeroCurso, cedula);
-				cout << "Reservacion realizada exitosamente..." << endl;;
-			} while (continuar == 'S');
-
+				
 			delete itc;
+			system("pause");
+			break;
+		case 6:
+			system("cls");
+			cout << "\n------ MATRICULAR CURSO ------";
+
+			itc = cursos->obtenerIterador();
+			while (itc->masElementos()) {
+				curso = itc->proximoElemento();
+				cout << "\n" << curso->toString();
+			}
+			cout << "Digite el numero de curso en que desea matricular: " << endl;
+			cin >> numeroCurso;
+
+			while (itc->masElementos()) {
+				curso = itc->proximoElemento();
+
+				if (numeroCurso == curso->getNumero()) {
+					cout << "Digite su cedula para reservar su espacio en un curso: " << endl;
+					cin >> cedula;
+					curso->hacerReservacion(cedula);
+					cout << "Reservacion realizada exitosamente..." << endl;
+					
+				}
+			}
+		
+			
+
+			system("pause");
+		case 7:
+			system("cls");
+
+			//FALTA TERMINAR 
+
+			cout << "\n------ DESMATRICULAR CURSO ------";
+
+
+			cout << "Digite su cedula: " << endl;
+			cin >> cedula;
+
+			itc = cursos->obtenerIterador();
+			while (itc->masElementos()) {
+				curso = itc->proximoElemento();
+				cout << "\n" << curso->toString();
+			}
+
+			while (itc->masElementos()) {
+				curso = itc->proximoElemento();
+
+				if (numeroCurso == curso->getNumero()) {
+					cout << "Digite su cedula para reservar su espacio en un curso: " << endl;
+					cin >> cedula;
+					curso->cancelacionReservacion(cedula);
+					cout << "Reservacion realizada exitosamente..." << endl;
+
+				}
+			}
+
 			system("pause");
 			break;
 		case 0:
@@ -339,7 +389,7 @@ void Menu::iniciar() {
 	}
 
 }while (opcion != 6);
-	system("pause");
+
 }
 
 string Menu::miniMenu() {
