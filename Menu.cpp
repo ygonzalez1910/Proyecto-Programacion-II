@@ -322,17 +322,18 @@ void Menu::iniciar() {
 			cout << "\n------ MATRICULAR CURSO ------";
 
 			itc = cursos->obtenerIterador();
-			while (itc->masElementos()) {
+			/*while (itc->masElementos()) {
 				curso = itc->proximoElemento();
 				cout << "\n" << curso->toString();
-			}
+			}*/
 			cout << "Digite el numero de curso en que desea matricular: " << endl;
 			cin >> numeroCurso;
 
 			while (itc->masElementos()) {
 				curso = itc->proximoElemento();
-
-				if (numeroCurso == curso->getNumero()) {
+				cout << "Digite su cedula para reservar su espacio en un curso: " << endl;
+				cin >> cedula;
+				if (curso->getNumero() == numeroCurso) {
 					cout << "Digite su cedula para reservar su espacio en un curso: " << endl;
 					cin >> cedula;
 					curso->hacerReservacion(cedula);
@@ -340,17 +341,16 @@ void Menu::iniciar() {
 					
 				}
 			}
-		
-			
-
+			delete itc;
 			system("pause");
+			break;
+			
 		case 7:
 			system("cls");
 
 			//FALTA TERMINAR 
 
 			cout << "\n------ DESMATRICULAR CURSO ------";
-
 
 			cout << "Digite su cedula: " << endl;
 			cin >> cedula;
@@ -377,7 +377,7 @@ void Menu::iniciar() {
 			break;
 		case 0:
 			system("cls");
-			cout << "\nGracias por utilizar la aplicacion";
+			cout << "\nGracias por utilizar la aplicacion\n";
 			system("pause");
 			break;
 		default:

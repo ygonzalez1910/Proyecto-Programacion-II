@@ -85,7 +85,7 @@ string Curso::toString() const
 	r << "Capacidad: " << capacidad << "\n";
 	r << "Cantidad de matriculados: " << cantidadMatriculados << "\n";
 
-	r << "Reservaciones realizadas: " << reservaciones << "\n";
+	//r << "Reservaciones realizadas: " << reservaciones << "\n";
 	return r.str();
 }
 
