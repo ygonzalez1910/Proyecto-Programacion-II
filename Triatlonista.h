@@ -40,6 +40,10 @@ public:
 	virtual void setParticipados(int);
 	virtual void setGanados(int);
 
+	virtual void procesarArchivos();
+	static Fecha* convertirFecha(string);
+	static double convertirDouble(string);
+	static string convertirString(string);
 private:
 	Corredor* corredor;
 	Nadador* nadador;

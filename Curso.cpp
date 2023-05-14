@@ -30,7 +30,6 @@ void Curso::hacerReservacion(string cedula)
 		it = reservaciones->obtenerIterador();
 		while (it->masElementos()) {
 			tria = it->proximoElemento();
-
 			if (cedula == tria->getcedula()) {
 				reservaciones->agregar(tria);
 				cantidadMatriculados++;

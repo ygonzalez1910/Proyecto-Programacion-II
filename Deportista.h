@@ -23,6 +23,7 @@ public:
 	virtual void setNacimiento(int, int, int) = 0;
 	virtual void setEstado(char) = 0;
 
+
 protected:
 	string cedula;
 	string nombre;

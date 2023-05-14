@@ -18,3 +18,4 @@ string Deportista::toString() const
 
 	return r.str();
 }
+

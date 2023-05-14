@@ -262,13 +262,11 @@ void Menu::iniciar() {
 							tria->setGanados(triaGanados);
 							cout << "\nCliente actualizado exitosamente.\n";
 							break;
-						defaul:
+						default:
 							system("cls");
 							cout << "Opcion no valida." << endl;
 							break;
-
 						}
-						
 					}
 				}
 			}
@@ -313,34 +311,40 @@ void Menu::iniciar() {
 					curso = itc->proximoElemento();
 					cout << "\n" << curso->toString();
 				}
-				
 			delete itc;
 			system("pause");
 			break;
 		case 6:
 			system("cls");
-			cout << "\n------ MATRICULAR CURSO ------";
+			do {
+				cout << "\n------ MATRICULAR CURSO ------";
 
-			itc = cursos->obtenerIterador();
-			/*while (itc->masElementos()) {
-				curso = itc->proximoElemento();
+				itc = cursos->obtenerIterador();
+				cout << "\nLista de cursos disponibles...";
 				cout << "\n" << curso->toString();
-			}*/
-			cout << "Digite el numero de curso en que desea matricular: " << endl;
-			cin >> numeroCurso;
 
-			while (itc->masElementos()) {
-				curso = itc->proximoElemento();
-				cout << "Digite su cedula para reservar su espacio en un curso: " << endl;
-				cin >> cedula;
-				if (curso->getNumero() == numeroCurso) {
-					cout << "Digite su cedula para reservar su espacio en un curso: " << endl;
-					cin >> cedula;
-					curso->hacerReservacion(cedula);
-					cout << "Reservacion realizada exitosamente..." << endl;
-					
+				cout << "\nDigite el numero de curso en que desea matricular: " << endl;
+				cin >> numeroCurso;
+
+				while (itc->masElementos()) {
+					curso = itc->proximoElemento();
+					/*cout << "Digite su cedula para reservar su espacio en un curso: " << endl;
+					cin >> cedula;*/
+					if (curso->getNumero() == numeroCurso) {
+						cout << "Digite su cedula para reservar su espacio en un curso: " << endl;
+						cin >> cedula;
+						if (cedula != tria->getcedula()) {
+							cout << "La cedula no fue encontrada...\n";
+						}
+						else {
+							curso->hacerReservacion(cedula);
+							cout << "Reservacion realizada exitosamente..." << endl;
+							
+						}
+					}
 				}
-			}
+			break;
+			} while (continuar == 'S');
 			delete itc;
 			system("pause");
 			break;
@@ -388,7 +392,7 @@ void Menu::iniciar() {
 
 	}
 
-}while (opcion != 6);
+}while (opcion != 8);
 
 }
 

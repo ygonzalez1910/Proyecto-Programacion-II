@@ -1,5 +1,7 @@
 #include "Triatlonista.h"
 #include <sstream>
+#include <fstream>
+#include <iostream>
 
 Triatlonista::Triatlonista(Corredor* corredor, Nadador* nadador, Ciclista* ciclista, 
 int triaGanados, int triaParticipados, bool estado)
@@ -145,4 +147,101 @@ void Triatlonista::setParticipados(int participados)
 void Triatlonista::setGanados(int ganados)
 {
 	this->triaGanados = ganados;
+}
+
+void Triatlonista::procesarArchivos()
+{
+	fstream entrada("../Triatlonistas.txt", ios::in);
+	fstream errores("../errores.txt", ios::out);
+
+	string valor1, valor2, valor3, descripcion;
+	Fecha* valor1_1;
+	double valor2_2;
+	string valor3_3;
+	Nadador* nadador = NULL;
+	Ciclista* ciclista = NULL;
+	Corredor* corredor = NULL;
+	while (entrada.good()) {
+		getline(entrada, descripcion, '\t');
+
+		if (!descripcion.empty()) {
+			getline(entrada, valor1, '\t');
+			getline(entrada, valor2, '\n');
+			getline(entrada, valor3, '\n');
+
+			try {
+				string mensaje = "error de acceso al archivo";
+				if (!entrada.good()) {
+					throw mensaje;
+				}
+			}
+			catch (string error) {
+				errores << "error file: " << error << "\n";
+			}
+
+			try {
+
+				/*(string cedula, string nombre, string telefono, Fecha * nacimiento
+					, double masaMuscular, double peso, double porcentajeGrasaCorporal)*/
+				valor1_1 = convertirFecha(valor1);
+				valor2_2 = convertirDouble(valor2);
+				valor3_3 = convertirString(valor3);
+				if (descripcion == "Triatlonista") {
+					nadador = new Nadador(valor3_3,valor3_3,valor3_3,valor1_1,valor2_2,valor2_2,valor2_2);
+				}
+				/*else if (descripcion == "rectangulo") {
+					f = new Rectangulo(valor1_1, valor2_2);
+				}
+				else {
+					string noTipo = "no es figura";
+					throw noTipo;
+				}
+				cout << "Area: " << f->calcularArea() << "\n";*/
+			}
+			catch (int errorInt) {
+				errores << "error int: " << errorInt << "\n";
+			}
+			catch (double errorDouble) {
+				errores << "error double: " << errorDouble << "\n";
+			}
+			catch (string errorTipo) {
+				errores << "error tipo figura: " << errorTipo << "\n";
+			}
+		}
+	}
+	entrada.close();
+	errores.close();
+}
+
+Fecha* Triatlonista::convertirFecha(string s)
+{
+	stringstream r;
+	Fecha* valor;
+	r << s;
+	if (!(r >> valor)) {
+		throw - 1;
+	}
+	return valor;
+}
+
+double Triatlonista::convertirDouble(string s)
+{
+	stringstream r;
+	double valor;
+	r << s;
+	if (!(r >> valor)) {
+		throw 1.25;
+	}
+	return valor;
+}
+
+string Triatlonista::convertirString(string s)
+{
+	stringstream r;
+	string valor;
+	r << s;
+	if (!(r >> valor)) {
+		throw 1.25;
+	}
+	return valor;
 }
