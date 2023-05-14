@@ -291,7 +291,7 @@ void Menu::iniciar() {
 			cin >> d;
 			cout << "Ahora el mes: ";
 			cin >> m;
-			cout << "Por ultimo el año: ";
+			cout << "Por ultimo el aï¿½o: ";
 			cin >> a;
 			cout << "Digite la capacidad del curso: ";
 			cin >> capacidad;
