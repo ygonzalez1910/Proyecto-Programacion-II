@@ -75,3 +75,13 @@ int Fecha::edad() {
     }
     return edad;
 }
+
+Fecha* Fecha::convertirFecha(string fecha_str) {
+    int dia, mes, anio;
+    int pos1 = fecha_str.find("/");
+    int pos2 = fecha_str.find("/", pos1 + 1);
+    int dia = stoi(fecha_str.substr(0, pos1));
+    int mes = stoi(fecha_str.substr(pos1 + 1, pos2 - pos1 - 1));
+    int anio = stoi(fecha_str.substr(pos2 + 1));
+    return new Fecha(dia, mes, anio);
+}

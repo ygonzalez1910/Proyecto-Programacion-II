@@ -181,16 +181,33 @@ void Menu::iniciar() {
 				cout << "\nDigite la cedula del cliente al que desea actualizar sus datos: ";
 				cin >> cedula;
 
-
 				while (it->masElementos()) {
-
 					tria = it->proximoElemento();
-
-					if (cedula == tria->getcedula()) {
-						cout << "\n" << tria->toString();
-						cout << miniMenu();
-						cout << "\nDigite la opcion que desea realizar: ";
-						cin >> opcion2;
+					try {
+						if (cedula == tria->getcedula()) {
+							cout << "\n" << tria->toString();
+							cout << miniMenu();
+							cout << "\nDigite la opcion que desea realizar: ";
+							cin >> opcion2;
+							if (cedula != tria->getcedula()) {
+								throw std::invalid_argument("Cedula invalida");
+							}
+						}
+					}
+					catch (exception& e) {
+						cerr << "La cedula no fue encontrada" << e.what() << endl;
+						cout << "Indique su cedula nuevamente: ";
+						cin >> cedula;
+						if (cedula == tria->getcedula()) {
+							cout << "\n" << tria->toString();
+							cout << miniMenu();
+							cout << "\nDigite la opcion que desea realizar: ";
+							cin >> opcion2;
+							if (cedula != tria->getcedula()) {
+								throw std::invalid_argument("Cedula invalida");
+							}
+					}
+						
 
 						switch (opcion2) {
 						case '0':
@@ -289,17 +306,17 @@ void Menu::iniciar() {
 			cin >> d;
 			cout << "Ahora el mes: ";
 			cin >> m;
-			cout << "Por ultimo el a�o: ";
+			cout << "Por ultimo el año: ";
 			cin >> a;
 			cout << "Digite la capacidad del curso: ";
 			cin >> capacidad;
 
-				fecha = new Fecha(d, m, a);
-				curso = new Curso(cc,numeroCurso, nivel, fecha,capacidad);
-				fechas->agregar(fecha);
-				cursos->agregar(curso);
+			fecha = new Fecha(d, m, a);
+			curso = new Curso(cc,numeroCurso, nivel, fecha,capacidad);
+			fechas->agregar(fecha);
+			cursos->agregar(curso);
 
-				cout << "\nCurso agregado exitosamente..." << endl;
+			cout << "\nCurso agregado exitosamente..." << endl;
 			system("pause");
 			break;
 		case 5:
@@ -330,17 +347,25 @@ void Menu::iniciar() {
 					curso = itc->proximoElemento();
 					/*cout << "Digite su cedula para reservar su espacio en un curso: " << endl;
 					cin >> cedula;*/
-					if (curso->getNumero() == numeroCurso) {
-						cout << "Digite su cedula para reservar su espacio en un curso: " << endl;
+					try {
+						if (curso->getNumero() == numeroCurso) {
+							cout << "Digite su cedula para reservar su espacio en un curso: " << endl;
+							cin >> cedula;
+							if (cedula != tria->getcedula()) {
+								throw std::invalid_argument("Cedula invalida");
+							}
+							else {
+								curso->hacerReservacion(cedula);
+								cout << "Reservacion realizada exitosamente..." << endl;
+							}
+						}
+					}
+					catch (exception& e) {
+						cerr << "La cedula no fue encontrada" << e.what() << endl;
+						cout << "Indique su cedula nuevamente: ";
 						cin >> cedula;
-						if (cedula != tria->getcedula()) {
-							cout << "La cedula no fue encontrada...\n";
-						}
-						else {
-							curso->hacerReservacion(cedula);
-							cout << "Reservacion realizada exitosamente..." << endl;
-							
-						}
+						curso->hacerReservacion(cedula);
+						cout << "Reservacion realizada exitosamente..." << endl;
 					}
 				}
 			break;
@@ -369,10 +394,10 @@ void Menu::iniciar() {
 				curso = itc->proximoElemento();
 
 				if (numeroCurso == curso->getNumero()) {
-					cout << "Digite su cedula para reservar su espacio en un curso: " << endl;
+					cout << "Digite su cedula para cancelar su espacio en un curso: " << endl;
 					cin >> cedula;
 					curso->cancelacionReservacion(cedula);
-					cout << "Reservacion realizada exitosamente..." << endl;
+					cout << "Cancelacion realizada exitosamente..." << endl;
 
 				}
 			}

@@ -17,7 +17,7 @@ public:
 	virtual int getAnio();
 	virtual string FechaActual();
 	virtual string toString();
-
+	static Fecha* convertirFecha(string fecha_str);
 	virtual int edad();
 	
 private:

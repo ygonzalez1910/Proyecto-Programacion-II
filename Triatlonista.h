@@ -41,7 +41,7 @@ public:
 	virtual void setGanados(int);
 
 	virtual void procesarArchivos();
-	static Fecha* convertirFecha(string);
+	/*static Fecha* convertirFecha(string);*/
 	static double convertirDouble(string);
 	static string convertirString(string);
 private:
@@ -53,5 +53,6 @@ private:
 	bool estado;
 	bool pago; 
 	DatosBiometricos* datos;
+	Fecha* fecha;
 };
 

@@ -35,7 +35,6 @@ void Curso::hacerReservacion(string cedula)
 				cantidadMatriculados++;
 			}
 		}
-		
 	}
 	else {
 		throw mensaje;
@@ -46,17 +45,15 @@ void Curso::cancelacionReservacion(string cedula)
 {
 	IteradorLista<Triatlonista>* it;
 	
-		it = reservaciones->obtenerIterador();
-		while (it->masElementos()) {
-			tria = it->proximoElemento();
+	it = reservaciones->obtenerIterador();
+	while (it->masElementos()) {
+		tria = it->proximoElemento();
 
-			if (cedula == tria->getcedula()) {
-				reservaciones->eliminar(tria);
-				cantidadMatriculados--;
-			}
+		if (cedula == tria->getcedula()) {
+			reservaciones->eliminar(tria);
+			cantidadMatriculados--;
 		}
-
-	
+	}
 }
 
 int Curso::getCantidadMatriculados()
@@ -88,6 +85,18 @@ string Curso::toString() const
 	return r.str();
 }
 
+string Curso::toStringReservaciones()
+{
+	stringstream r;
+	//iterador de lista reservaciones
+	IteradorLista<Triatlonista>* itr;
+	r << "Descripcion del curso: " << descripcionCurso << "\n";
+	itr = reservaciones->obtenerIterador();
+	while (itr->masElementos()) {
+		reservaciones = itr->proximoElemento();
+		r << "\nReservaciones realizadas: " << reservaciones;
+	}
+}
 
 Fecha* Curso::getFecha() const
 {

@@ -183,7 +183,7 @@ void Triatlonista::procesarArchivos()
 
 				/*(string cedula, string nombre, string telefono, Fecha * nacimiento
 					, double masaMuscular, double peso, double porcentajeGrasaCorporal)*/
-				valor1_1 = convertirFecha(valor1);
+				valor1_1 = fecha->convertirFecha(valor1);
 				valor2_2 = convertirDouble(valor2);
 				valor3_3 = convertirString(valor3);
 				if (descripcion == "Triatlonista") {
@@ -205,7 +205,7 @@ void Triatlonista::procesarArchivos()
 				errores << "error double: " << errorDouble << "\n";
 			}
 			catch (string errorTipo) {
-				errores << "error tipo figura: " << errorTipo << "\n";
+				errores << "error tipo fecha: " << errorTipo << "\n";
 			}
 		}
 	}
@@ -213,16 +213,16 @@ void Triatlonista::procesarArchivos()
 	errores.close();
 }
 
-Fecha* Triatlonista::convertirFecha(string s)
-{
-	stringstream r;
-	Fecha* valor;
-	r << s;
-	if (!(r >> valor)) {
-		throw - 1;
-	}
-	return valor;
-}
+//Fecha* Triatlonista::convertirFecha(string s)
+//{
+//	stringstream r;
+//	Fecha* valor;
+//	r << s;
+//	if (!(r >> valor)) {
+//		throw - 1;
+//	}
+//	return valor;
+//}
 
 double Triatlonista::convertirDouble(string s)
 {

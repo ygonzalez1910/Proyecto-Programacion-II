@@ -12,6 +12,7 @@ public:
 	virtual void cancelacionReservacion(string);
 	
 	virtual string toString() const;
+	virtual string toStringReservaciones();
 
 	virtual Fecha* getFecha() const;
 
@@ -31,6 +32,5 @@ private:
 	Triatlonista* tria;
 	Fecha* fechaCurso;
 	Lista<Triatlonista>* reservaciones;
-
-
+	IteradorLista<Triatlonista>* itr;
 };
