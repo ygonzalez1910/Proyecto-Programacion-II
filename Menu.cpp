@@ -21,6 +21,7 @@ void Menu::menuPrincipal() {
 	cout << "\n4. Agregar curso.";
 	cout << "\n5. Mostrar cursos.";
 	cout << "\n6. Inscribirse a curso.";
+	cout << "\n7. Mostrar reservaciones.";
 	cout << "\n0. Salir";
 }
 
@@ -403,7 +404,12 @@ void Menu::iniciar() {
 
 				}
 			}
-
+			system("pause");
+			break;
+		case 8:
+			system("cls");
+			cout << "Lista de reservaciones: " << endl;
+			cout << curso->toStringReservaciones() << "\n";
 			system("pause");
 			break;
 		case 0:
