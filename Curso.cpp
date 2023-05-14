@@ -4,9 +4,9 @@ using std::stringstream;
 
 const int Curso::MAX;
 
-Curso::Curso(string descripcionCurso, int numero, char nivel, Fecha* fechaCurso, int capacidad)
+Curso::Curso(string descripcionCurso, int numero, char nivel, Fecha* fechaCurso, int capacidad,int cantidadMatriculados)
 	:descripcionCurso(descripcionCurso), numero(numero), nivel(nivel), fechaCurso(fechaCurso)
-	, capacidad(capacidad), tria(nullptr), cantidadMatriculados(0)
+	, capacidad(capacidad), cantidadMatriculados(cantidadMatriculados),tria(nullptr)
 	,reservaciones(new Lista<Triatlonista>()), cantidad(0)
 {
 }
@@ -14,12 +14,15 @@ Curso::Curso(string descripcionCurso, int numero, char nivel, Fecha* fechaCurso,
 Curso::~Curso()
 {
 }
-
+void Curso::setCantidadMatriculados(int cantidadMatriculados)
+{
+	this->cantidadMatriculados = cantidadMatriculados;
+}
 bool Curso::lleno(){
 	return cantidadMatriculados == MAX;
 }
 
-void Curso::hacerReservacion(string cedula)
+void Curso::hacerReservacion(string cedula,int numeroCursoRecibido)
 {
 	IteradorLista<Triatlonista>* it;
 	string mensaje = "El grupo ya se encuentra lleno...";
@@ -28,12 +31,12 @@ void Curso::hacerReservacion(string cedula)
 
 	if (!lleno()) {
 		it = reservaciones->obtenerIterador();
-		while (it->masElementos()) {
-			tria = it->proximoElemento();
-
-			if (cedula == tria->getcedula()) {
+		if (numeroCursoRecibido == numero && cedula == tria->getcedula()) {
+			while (it->masElementos()) {
+				tria = it->proximoElemento();
 				reservaciones->agregar(tria);
 				cantidadMatriculados++;
+				cout << "Se ha matriculado exitosamente...\n";
 			}
 		}
 		
@@ -82,10 +85,14 @@ string Curso::toString() const
 	r << "Numero de grupo: " << numero << "\n";
 	r << "Nivel: " << nivel << "\n";
 	r << "Fecha inicio: " << fechaCurso->toString() << "\n";
+	cout << "Hola";
 	r << "Capacidad: " << capacidad << "\n";
 	r << "Cantidad de matriculados: " << cantidadMatriculados << "\n";
-
-	r << "Reservaciones realizadas: " << reservaciones << "\n";
+	if (reservaciones == nullptr) {
+		r << "\nNo hay reservaciones realizadas...\n";
+	}else{
+		r << "Reservaciones realizadas: " << reservaciones << "\n";
+	}
 	return r.str();
 }
 

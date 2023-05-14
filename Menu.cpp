@@ -55,7 +55,7 @@ void Menu::iniciar() {
 
 	Triatlonista* tria = new Triatlonista(corredor, nadador, ciclista, triaGanados, triaParticipados, estado);
 	Triatlonista* aux = new Triatlonista(corredor, nadador, ciclista, triaGanados, triaParticipados, estado);
-	Curso* curso = new Curso(cc, numeroCurso, nivel, fecha,capacidad);
+	Curso* curso = new Curso(cc, numeroCurso, nivel, fecha,capacidad,cantidadMatriculados);
 	IteradorLista<Triatlonista>* it;
 	IteradorLista<Curso>* itc;
 	
@@ -262,13 +262,12 @@ void Menu::iniciar() {
 							tria->setGanados(triaGanados);
 							cout << "\nCliente actualizado exitosamente.\n";
 							break;
-						defaul:
+						default:
 							system("cls");
 							cout << "Opcion no valida." << endl;
 							break;
 
 						}
-						
 					}
 				}
 			}
@@ -295,11 +294,15 @@ void Menu::iniciar() {
 			cin >> a;
 			cout << "Digite la capacidad del curso: ";
 			cin >> capacidad;
+			cout << "Digite la cantidad de matriculados: ";
+			cin >> cantidadMatriculados;
+			curso->setCantidadMatriculados(cantidadMatriculados);
 
 				fecha = new Fecha(d, m, a);
-				curso = new Curso(cc,numeroCurso, nivel, fecha,capacidad);
+				curso = new Curso(cc,numeroCurso, nivel, fecha,capacidad,cantidadMatriculados);
 				fechas->agregar(fecha);
 				cursos->agregar(curso);
+
 
 				cout << "\nCurso agregado exitosamente..." << endl;
 			system("pause");
@@ -329,21 +332,19 @@ void Menu::iniciar() {
 			cout << "Digite el numero de curso en que desea matricular: " << endl;
 			cin >> numeroCurso;
 
-			while (itc->masElementos()) {
-				curso = itc->proximoElemento();
+		/*	while (itc->masElementos()) {
+				curso = itc->proximoElemento();*/
 
-				if (numeroCurso == curso->getNumero()) {
+				//if (numeroCurso == curso->getNumero()) {
 					cout << "Digite su cedula para reservar su espacio en un curso: " << endl;
 					cin >> cedula;
-					curso->hacerReservacion(cedula);
+					curso->hacerReservacion(cedula,numeroCurso);
 					cout << "Reservacion realizada exitosamente..." << endl;
 					
-				}
-			}
-		
-			
-
+				//}
+		/*	}*/
 			system("pause");
+			break;
 		case 7:
 			system("cls");
 
@@ -388,7 +389,7 @@ void Menu::iniciar() {
 
 	}
 
-}while (opcion != 6);
+}while (opcion != 9);
 
 }
 

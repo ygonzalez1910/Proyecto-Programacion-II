@@ -5,12 +5,12 @@
 class Curso
 {
 public:
-	Curso(string, int, char, Fecha*, int);
+	Curso(string, int, char, Fecha*, int,int);
 	virtual ~Curso();
 	bool lleno();
-	virtual void hacerReservacion(string);
+	virtual void hacerReservacion(string,int);
 	virtual void cancelacionReservacion(string);
-	
+	virtual void setCantidadMatriculados(int);
 	virtual string toString() const;
 
 	virtual Fecha* getFecha() const;
@@ -30,7 +30,7 @@ private:
 	int cantidadMatriculados;
 	Triatlonista* tria;
 	Fecha* fechaCurso;
-	Lista<Triatlonista>* reservaciones;
+	Lista<Triatlonista>* reservaciones = nullptr;
 
 
 };
