@@ -12,7 +12,7 @@ public:
 	virtual ~Menu();
 	virtual void menuPrincipal();
 	virtual void iniciar();
-
+	virtual string miniMenu();
 private:
 	int opcion;
 	Lista<Triatlonista>* triatlonistas;

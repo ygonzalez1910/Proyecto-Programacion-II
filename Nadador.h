@@ -20,7 +20,10 @@ public:
 	virtual void setNacimiento(int, int, int);
 	virtual void setEstado(char);
 
-	
+	virtual void setMasaMuscular(double);
+	virtual void setPeso(double);
+	virtual void setPorcentajeGrasaCorporal(double);
+
 protected:
 	string cedula;
 	string nombre;

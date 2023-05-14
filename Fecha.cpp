@@ -4,7 +4,7 @@
 using std::stringstream;
 
 Fecha::Fecha(int dia, int mes, int anio)
-    :dia(dia), mes(mes), anio(anio), dA(0), mA(0), aA(0)
+    :dia(dia), mes(mes), anio(anio)
 {
 }
 
@@ -48,22 +48,17 @@ int Fecha::getMes()
     return mes;
 }
 
-void Fecha::FechaActual()
+string Fecha::FechaActual()
 {
-
+    stringstream r;
     time_t tiempoActual = time(0);
 
     tm tiempoLocal;
     localtime_s(&tiempoLocal, &tiempoActual);
 
-    int diaActual = tiempoLocal.tm_mday;
-    int mesActual = tiempoLocal.tm_mon + 1;
-    int anioActual = tiempoLocal.tm_year + 1900;
-
-    dA = diaActual;
-    mA = mesActual;
-    aA = anioActual;
-
+    r << tiempoLocal.tm_mday << "/" << tiempoLocal.tm_mon + 1 << "/" << tiempoLocal.tm_year + 1900 << endl;
+   
+    return r.str();
 }
 
 int Fecha::edad() {

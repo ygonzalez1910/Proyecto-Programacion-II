@@ -32,6 +32,14 @@ public:
 	//falta implementar estos en clase corredor,nadador,ciclista(esto en caso de que no se trabajará
 	//con la clase datos biometricos)
 	virtual void setDatosBiometricos(double,double,double,double);
+	
+	virtual Corredor* getCorredor();
+	virtual Ciclista* getCiclista();
+	virtual Nadador* getNadador();
+
+	virtual void setParticipados(int);
+	virtual void setGanados(int);
+
 private:
 	Corredor* corredor;
 	Nadador* nadador;

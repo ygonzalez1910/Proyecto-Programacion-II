@@ -25,6 +25,7 @@ string Triatlonista::toString() const
 	r << "Datos como triatlonista: " << endl;
 	r << "Triatlones ganados: " << triaGanados << "\n";
 	r << "Triatlones participados: " << triaParticipados << "\n";
+
 	return r.str();
 }
 
@@ -64,17 +65,17 @@ void Triatlonista::setEstado(bool estado)
 
 string Triatlonista::getcedula() const
 {
-	return corredor->getcedula(), ciclista->getcedula(), nadador->getcedula();
+	return corredor->getcedula();
 }
 
 string Triatlonista::getnombre() const
 {
-	return (corredor->getnombre() == ciclista->getnombre()) ? corredor->getnombre() : "No hay nombre valido.";
+	return corredor->getnombre();
 }
 
 string Triatlonista::gettelefono() const
 {
-	return (corredor->gettelefono() == ciclista->gettelefono()) ? corredor->gettelefono() : "No hay telefono valido.";
+	return corredor->gettelefono();
 }
 
 Fecha* Triatlonista::getnacimiento() const
@@ -122,4 +123,26 @@ void Triatlonista::setDatosBiometricos(double estatura, double peso,double porce
 	datos = new DatosBiometricos(estatura, peso, porcentajeGrasaCorporal, porcentajeMasaMuscular);
 }
 
+Corredor* Triatlonista::getCorredor() {
+	return corredor;
+}
 
+Ciclista* Triatlonista::getCiclista()
+{
+	return ciclista;
+}
+
+Nadador* Triatlonista::getNadador()
+{
+	return nadador;
+}
+
+void Triatlonista::setParticipados(int participados)
+{
+	this->triaParticipados = participados;
+}
+
+void Triatlonista::setGanados(int ganados)
+{
+	this->triaGanados = ganados;
+}

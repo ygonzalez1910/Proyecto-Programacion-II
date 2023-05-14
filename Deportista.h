@@ -9,6 +9,7 @@ class Deportista : public ObjetoBase
 {
 public:
 	Deportista(string, string, string, Fecha*);
+
 	virtual string toString() const;
 	virtual string getcedula() const = 0;
 	virtual string getnombre() const = 0;
@@ -29,26 +30,3 @@ protected:
 	Fecha* nacimiento;
 	DatosBiometricos* datos;
 };
-
-/*public:
-
-	virtual string toString() const;
-
-	virtual void setCedula(int);
-	virtual void setNombre(string) ;
-	virtual void setTelefono(string);
-	virtual void setNacimiento(int,int,int);
-	virtual void setEstado(char);
-
-	virtual int getCedula(int);
-	virtual string getNombre();
-	virtual string getTelefono();
-	virtual Fecha* getNacimiento();
-	virtual char getEstado();
-
-protected:
-	int cedula = 0;
-	string nombre;
-	string telefono;
-	char estado;
-	Fecha* fechaNacimiento;*/

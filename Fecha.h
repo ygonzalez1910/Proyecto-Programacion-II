@@ -15,17 +15,17 @@ public:
 	virtual int getDia();
 	virtual int getMes();
 	virtual int getAnio();
-	virtual void FechaActual();
+	virtual string FechaActual();
 	virtual string toString();
 
-	int edad();
+	virtual int edad();
 	
 private:
 	int dia;
 	int mes;
 	int anio;
-	int dA;
-	int mA;
-	int aA;
+	//int dA;
+	//int mA;
+	//int aA;
 };
 

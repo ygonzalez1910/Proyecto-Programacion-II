@@ -19,7 +19,7 @@ string Corredor::toString() const
 	r << "Nombre: " << Deportista::nombre << endl;
 	r << "Cedula: " << Deportista::cedula << endl;
 	r << "Telefono: " << Deportista::telefono << endl;
-	r << "Nacimiento: " << nacimiento->toString() << endl;
+	r << "Edad: " << nacimiento->edad() << endl;
 	r << "Datos como corredor: " << endl <<  info();
 
 	return r.str();
@@ -27,17 +27,17 @@ string Corredor::toString() const
 
 string Corredor::getcedula() const
 {
-	return cedula;
+	return Deportista::cedula;
 }
 
 string Corredor::getnombre() const
 {
-	return nombre;
+	return Deportista::nombre;
 }
 
 string Corredor::gettelefono() const
 {
-	return telefono;
+	return Deportista::telefono;
 }
 
 Fecha* Corredor::getnacimiento() const
@@ -78,4 +78,8 @@ void Corredor::setNacimiento(int dia, int mes, int anio)
 void Corredor::setEstado(char estado)
 {
 	this->estado = estado;
+}
+
+void Corredor::setEstatura(double estatura) {
+	this->estatura = estatura;
 }

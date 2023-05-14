@@ -20,13 +20,12 @@ void Menu::menuPrincipal() {
 	cout << "\n3. Actualizar cliente.";
 	cout << "\n4. Agregar curso.";
 	cout << "\n5. Mostrar cursos.";
-	cout << "\n6. Salir";
+	cout << "\n0. Salir";
 }
 
 void Menu::iniciar() {
-
+	char opcion2 = ' ';
 	//aqui no se declaran listas porque ya las tiene la clase inicializadas
-
 	//depor
 	string nombre, cedula, telefono;
 	int dia = 0, mes = 0, anio = 0;
@@ -54,6 +53,7 @@ void Menu::iniciar() {
 	Nadador* nadador = new Nadador(cedula, nombre, telefono, fecha, masaMuscular, peso, porcentajeGrasaCorporal);
 
 	Triatlonista* tria = new Triatlonista(corredor, nadador, ciclista, triaGanados, triaParticipados, estado);
+	Triatlonista* aux = new Triatlonista(corredor, nadador, ciclista, triaGanados, triaParticipados, estado);
 	Curso* curso = new Curso(cc, numeroCurso, nivel, fecha,capacidad,cantidadMatriculados);
 	IteradorLista<Triatlonista>* it;
 	IteradorLista<Curso>* itc;
@@ -157,7 +157,7 @@ void Menu::iniciar() {
 
 		case 2:
 			system("cls");
-			//do {
+
 			cout << "\n------ MOSTRAR CLIENTES ------";
 			it = triatlonistas->obtenerIterador();
 			while (it->masElementos()) {
@@ -165,36 +165,117 @@ void Menu::iniciar() {
 				cout << "\n" << tria->toString();
 			}
 			system("pause");
-			//} while (continuar == 'S');
+
 			delete it;
 			break;
 		case 3:
 			system("cls");
-			do {
-				cout << "\n------ ACTUALIZAR CLIENTE INFORMACION DE CLIENTE ------";
-				it = triatlonistas->obtenerIterador();
+
+			cout << "\n------ ACTUALIZAR CLIENTE INFORMACION DE CLIENTE ------\n";
+
+			it = triatlonistas->obtenerIterador();
+
+			if (it->masElementos() != NULL) {
+
+				cout << "\nDigite la cedula del cliente al que desea actualizar sus datos: ";
+				cin >> cedula;
+
+
 				while (it->masElementos()) {
+
 					tria = it->proximoElemento();
-					cout << "\nDigite la cedula del cliente al que desea actualizar sus datos: ";
-					cin >> cedula;
+
 					if (cedula == tria->getcedula()) {
 						cout << "\n" << tria->toString();
-						cout << "\nEstatura: ";
-						cin >> estatura;
-						cout << "\nPeso:  ";
-						cin >> peso;
-						cout << "Porcentaje de grasa corporal: " << endl;
-						cin >> porcentajeGrasaCorporal;
-						cout << "Porcentaje de masa muscular: " << endl;
-						cin >> masaMuscular;
-						tria->setDatosBiometricos(estatura, peso, porcentajeGrasaCorporal, masaMuscular);
-						cout << "\nCliente actualizado exitosamente.";
-						break;
+						cout << miniMenu();
+						cout << "\nDigite la opcion que desea realizar: ";
+						cin >> opcion2;
+
+						switch (opcion2) {
+						case '0':
+							system("cls");
+							cout << "\nSaliendo de la opcion...";
+							system("pause");
+							break;
+						case 'A':
+							system("cls");
+							cout << "\nDigite su nueva estatura: ";
+							cin >> estatura;
+							tria->getCorredor()->setEstatura(estatura);
+							cout << "\nCliente actualizado exitosamente.\n";
+							
+							break;
+						case 'B':
+							system("cls");
+							cout << "Porcentaje de masa muscular: " << endl;
+							cin >> masaMuscular;
+							tria->getNadador()->setMasaMuscular(masaMuscular);
+							cout << "\nCliente actualizado exitosamente.\n";
+							break;
+						case 'C':
+							system("cls");
+							cout << "\nPeso:  ";
+							cin >> peso;
+							tria->getNadador()->setPeso(peso);
+							cout << "\nCliente actualizado exitosamente.\n";
+							break;
+						case 'D':
+							system("cls");
+							cout << "Digite su nuevo telefono: ";
+							cin >> telefono;
+							tria->setTelefono(telefono);
+							cout << "\nCliente actualizado exitosamente.\n";
+							break;
+						case 'E':
+							system("cls");
+							cout << "Porcentaje de grasa corporal: " << endl;
+							cin >> porcentajeGrasaCorporal;
+							tria->getNadador()->setPorcentajeGrasaCorporal(porcentajeGrasaCorporal);
+							cout << "\nCliente actualizado exitosamente.\n";
+							break;
+						case 'F':
+							system("cls");
+							cout << "Digite sus horas entrenadas: " << endl;
+							cin >> horasEntrenamiento;
+							tria->getCiclista()->setHorasEntrenamiento(horasEntrenamiento);
+							cout << "\nCliente actualizado exitosamente.\n";
+							break;
+						case 'G':
+							system("cls");
+							cout << "Digite su tem promedio: \n";
+							cin >> temPromedio;
+							tria->getCiclista()->setTemPromedio(temPromedio);
+							cout << "\nCliente actualizado exitosamente.\n";
+							break;
+						case 'H':
+							system("cls");
+							cout << "Digite la nueva cantidad de triatlones participados: \n";
+							cin >> triaParticipados;
+							tria->setParticipados(triaParticipados);
+							cout << "\nCliente actualizado exitosamente.\n";
+							break;
+						case 'I':
+							system("cls");
+							cout << "Digite la nueva cantidad de triatlones ganados: \n";
+							cin >> triaGanados;
+							tria->setGanados(triaGanados);
+							cout << "\nCliente actualizado exitosamente.\n";
+							break;
+						defaul:
+							system("cls");
+							cout << "Opcion no valida." << endl;
+							break;
+
+						}
+						
 					}
 				}
-			} while (continuar == 'S');
+			}
+			else {
+				cout << "No hay clientes para actualizar. \n";
+			}
 
-			break;
+			
 			delete it;
 			system("pause");
 			break;
@@ -244,7 +325,7 @@ void Menu::iniciar() {
 			delete itc;
 			system("pause");
 			break;
-		case 6:
+		case 0:
 			system("cls");
 			cout << "\nGracias por utilizar la aplicacion";
 			system("pause");
@@ -259,4 +340,23 @@ void Menu::iniciar() {
 
 }while (opcion != 6);
 	system("pause");
+}
+
+string Menu::miniMenu() {
+
+	stringstream r;
+	r << "Datos que pueden ser actualizados: \n\n";
+	r << "A. Estatura.\n";
+	r << "B. Masa muscular.\n";
+	r << "C. Peso.\n";
+	r << "D. Telefono.\n";
+	r << "E. Porcentaje de grasa corporal.\n";
+	r << "F. Horas entrenadas.\n";
+	r << "G. Tempo promedio.\n";
+	r << "H. Triatlones participados.\n";
+	r << "I. Triatlones ganados.\n";
+	r << "0. Salir.\n";
+
+	return r.str();
+
 }

@@ -71,6 +71,21 @@ void Nadador::setEstado(char estado)
 	this->estado = estado;
 }
 
+void Nadador::setMasaMuscular(double masaMuscular)
+{
+	this->masaMuscular = masaMuscular;
+}
+
+void Nadador::setPeso(double peso)
+{
+	this->peso = peso;
+}
+
+void Nadador::setPorcentajeGrasaCorporal(double porcentaje)
+{
+	this->porcentajeGrasaCorporal = porcentaje;
+}
+
 
 string Nadador::toString()
 {

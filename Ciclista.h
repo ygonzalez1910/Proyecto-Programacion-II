@@ -22,6 +22,10 @@ public:
 	virtual void setNacimiento(int, int, int);
 	virtual void setEstado(char);
 
+	virtual void setHorasEntrenamiento(int);
+	virtual void setTemPromedio(double);
+
+
 protected:
 	string cedula;
 	string nombre;

@@ -21,6 +21,8 @@ public:
 	virtual void setNacimiento(int, int, int);
 	virtual void setEstado(char);
 
+	virtual void setEstatura(double);
+
 protected:
 	
 	string cedula;

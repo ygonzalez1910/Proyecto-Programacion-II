@@ -69,6 +69,16 @@ void Ciclista::setEstado(char estado)
 	this->estado = estado;
 }
 
+void Ciclista::setHorasEntrenamiento(int horasEntrenamiento)
+{
+	this->horasEntrenamiento = horasEntrenamiento;
+}
+
+void Ciclista::setTemPromedio(double temPromedio)
+{
+	this->temPromedio = temPromedio;
+}
+
 
 string Ciclista::toString() const
 {
