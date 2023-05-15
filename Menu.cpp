@@ -21,7 +21,8 @@ void Menu::menuPrincipal() {
 	cout << "\n4. Agregar curso.";
 	cout << "\n5. Mostrar cursos.";
 	cout << "\n6. Inscribirse a curso.";
-	cout << "\n7. Mostrar reservaciones.";
+	cout << "\n7. Desmatricularse de curso.";
+	cout << "\n8. Mostrar reservaciones.";
 	cout << "\n0. Salir";
 }
 
@@ -356,10 +357,10 @@ void Menu::iniciar() {
 								throw std::invalid_argument("Cedula invalida");
 							}
 							else {
-								curso->hacerReservacion(cedula);
+								curso->hacerReservacion(tria);
 								cout << "Reservacion realizada exitosamente..." << endl;
 								cantidadMatriculados++;
-								curso->setCantidadMatriculados(cantidadMatriculados);
+								//curso->setCantidadMatriculados(cantidadMatriculados);
 							}
 						}
 					}
@@ -367,7 +368,7 @@ void Menu::iniciar() {
 						cerr << "La cedula no fue encontrada" << e.what() << endl;
 						cout << "Indique su cedula nuevamente: ";
 						cin >> cedula;
-						curso->hacerReservacion(cedula);
+						curso->hacerReservacion(tria);
 						cout << "Reservacion realizada exitosamente..." << endl;
 					}
 				}
@@ -408,9 +409,10 @@ void Menu::iniciar() {
 			break;
 		case 8:
 			system("cls");
-			cout << "Lista de reservaciones: " << endl;
-			cout << curso->toStringReservaciones() << "\n";
-			system("pause");
+				cout << "Lista de reservaciones: " << endl;
+				cout << curso->toStringReservaciones() << "\n";
+
+				system("pause");
 			break;
 		case 0:
 			system("cls");
@@ -425,7 +427,7 @@ void Menu::iniciar() {
 
 	}
 
-}while (opcion != 8);
+}while (opcion != 0);
 
 }
 

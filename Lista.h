@@ -130,6 +130,7 @@ bool IteradorLista<T>::masElementos() const {
 
 template <class T>
 T* IteradorLista<T>::proximoElemento() {
+
 	T* r = cursor->getDato();
 	cursor = cursor->getSiguiente();
 	return r;

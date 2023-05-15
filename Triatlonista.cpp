@@ -186,9 +186,10 @@ void Triatlonista::procesarArchivos()
 				valor1_1 = fecha->convertirFecha(valor1);
 				valor2_2 = convertirDouble(valor2);
 				valor3_3 = convertirString(valor3);
-				if (descripcion == "Triatlonista") {
+				if (descripcion == "Nadador") {
 					nadador = new Nadador(valor3_3,valor3_3,valor3_3,valor1_1,valor2_2,valor2_2,valor2_2);
 				}
+				//string cedula, string nombre, string telefono, Fecha* nacimiento, char sexo, double estatura
 				else if (descripcion == "Triatlonista") {
 					nadador = new Nadador(valor3_3, valor3_3, valor3_3, valor1_1, valor2_2, valor2_2, valor2_2);
 				}
@@ -244,3 +245,5 @@ string Triatlonista::convertirString(string s)
 	}
 	return valor;
 }
+
+

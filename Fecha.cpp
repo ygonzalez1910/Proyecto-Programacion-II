@@ -63,6 +63,8 @@ string Fecha::FechaActual()
 
 int Fecha::edad() {
 
+
+
     time_t tiempo_actual;
     time(&tiempo_actual);
     tm tiempo_local;
@@ -77,6 +79,7 @@ int Fecha::edad() {
 }
 
 Fecha* Fecha::convertirFecha(string fecha_str) {
+
     int pos1 = fecha_str.find("/");
     int pos2 = fecha_str.find("/", static_cast<std::basic_string<char, std::char_traits<char>, std::allocator<char>>::size_type>(pos1) + 1);
     int dia = stoi(fecha_str.substr(0, pos1));

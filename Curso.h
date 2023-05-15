@@ -8,15 +8,15 @@ public:
 	Curso(string, int, char, Fecha*, int);
 	virtual ~Curso();
 	bool lleno();
-	virtual void hacerReservacion(string);
+	virtual void hacerReservacion(Triatlonista*);
 	virtual void cancelacionReservacion(string);
 	
 	virtual string toString() const;
-	//virtual string toStringReservaciones();
+	virtual string toStringReservaciones();
 
 	virtual Fecha* getFecha() const;
 	
-	virtual void setCantidadMatriculados(int);
+	//virtual void setCantidadMatriculados(int);
 	
 	int getCantidadMatriculados();
 	int getNumero();
@@ -33,5 +33,5 @@ private:
 	Triatlonista* tria;
 	Fecha* fechaCurso;
 	Lista<Triatlonista>* reservaciones;
-	IteradorLista<Triatlonista>* itr;
+	IteradorLista<Triatlonista>* itr = nullptr;
 };

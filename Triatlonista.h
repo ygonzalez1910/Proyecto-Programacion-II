@@ -43,7 +43,8 @@ public:
 	virtual void procesarArchivos();
 	/*static Fecha* convertirFecha(string);*/
 	static double convertirDouble(string);
-	static string convertirString(string);
+	static string convertirString(string);/*
+	static string convertirChar(string);*/
 private:
 	Corredor* corredor;
 	Nadador* nadador;
